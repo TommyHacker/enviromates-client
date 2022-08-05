@@ -1,4 +1,6 @@
-## Enviromates App
+## enviromates-client
+
+React client for enviromates webapp
 
 Installation
     - npm install
@@ -12,3 +14,4 @@ Changelog:
         # @mui/material
         # axios
         # file-loader
+
