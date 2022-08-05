@@ -27,12 +27,14 @@ const theme = createTheme({
     },
   });
 
-root.render(
-    <ThemeProvider theme={theme}>
-        <Provider store={store}>
-            <Router>
-                <App />
-            </Router>
-        </Provider>
-    </ThemeProvider>
+root.render(    
+
+  <ThemeProvider theme={theme}>
+    <Provider store={store}>
+      <Router>
+          <App />
+      </Router>
+    </Provider>
+  </ThemeProvider>
+     
 );
