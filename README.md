@@ -14,4 +14,5 @@ Changelog:
         # @mui/material
         # axios
         # file-loader
-
+    - added the routes in App.js
+    - created NavBar

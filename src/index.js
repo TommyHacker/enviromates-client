@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import App from "./App";
-import store from "./redux-toolkit/store/store";
+import store from "./redux-toolkit/store";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material";
 
@@ -27,12 +27,14 @@ const theme = createTheme({
     },
   });
 
-root.render(
-    <ThemeProvider theme={theme}>
-        <Provider store={store}>
-            <Router>
-                <App />
-            </Router>
-        </Provider>
-    </ThemeProvider>
+root.render(    
+
+  <ThemeProvider theme={theme}>
+    <Provider store={store}>
+      <Router>
+          <App />
+      </Router>
+    </Provider>
+  </ThemeProvider>
+     
 );
