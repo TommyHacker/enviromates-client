@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react' 
+import { useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
 export default function RegisterForm() {
+
     const [state, setState] = useState({
         username: "",
         firstName: "",
@@ -21,17 +23,40 @@ export default function RegisterForm() {
         });
     }
 
+    // function handleSubmit(e){
+    //     e.preventDefault()
+    //     setSubmitDetails(username, firstName, lastName, email, password)
+    //     navigate('/:username', {state: {
+    //         username: username,
+    //         firstName: firstName,
+    //         lastName: lastName,
+    //         email: email,
+    //         password: password
+    //     }})
+    // }
+
     function handleSubmit(e){
-        e.preventDefault()
-        setSubmitDetails(username, firstName, lastName, email, password)
-        navigate('/:username')
-        // {state: {
-        //     username: username,
-        //     firstName: firstName,
-        //     lastName: lastName,
-        //     email: email,
-        //     password: password}}
+        e.preventDefault();
+        setSubmitDetails('Submitting...')
+        fetch('http://localhost:5000/api/register', {
+            method: 'POST',
+            body: JSON.stringify(state)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.success){
+                setSubmitDetails('Successfully registered!')
+                navigate('/login')
+            }
+            else{
+                setSubmitDetails(data.message)
+            }
+        })
+        .catch(err => {
+            setSubmitDetails('Error!')
+        })
     }
+
 
   return (
     <div>

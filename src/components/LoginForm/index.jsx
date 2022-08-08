@@ -20,7 +20,7 @@ export default function LoginForm() {
     function handleSubmit(e){
         e.preventDefault()
         setSubmitDetails(username, password)
-        useNavigate('/:username', {state: {username: username, password: password}})
+        navigate('/:username', {state: {username: username, password: password}})
         setUsername('')
         setPassword('')
     }
@@ -28,12 +28,12 @@ export default function LoginForm() {
   return (
     <>
         <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="formUsername">
+            <Form.Group className="mb-3" controlId="username">
                 <Form.Label>Username</Form.Label>
                 <Form.Control type="text" placeholder="Type your username" value={username} onChange={handleInput}/>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formPassword">
+            <Form.Group className="mb-3" controlId="password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Type your password" value={password} onChange={handlePassword} />
             </Form.Group>
