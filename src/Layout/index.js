@@ -4,13 +4,13 @@ import { NavBar, Map } from '../components'
 
 
 export default function Layout() {
+
   return (
     <div>
         <NavBar />
         <Map />
         <Outlet />
-
     </div>
-
   )
+  
 }

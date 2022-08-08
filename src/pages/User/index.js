@@ -1,55 +1,24 @@
-import Button from 'react-bootstrap/Button';
 import React from 'react'
-// import '../public/styles/css/main.css';
+import Button from 'react-bootstrap/Button';
 
-function CreateEvent() {
+export default function User() {
   return (
     <>
-      <Button variant="info">Create Event</Button>{' '}
-    
-    </>
-  );
-}
+      <main>
+        <h2>Welcome there, {username}!</h2>
+      <br />
+      <br />
+        <Button variant="info">Create Event</Button>
+        <Button variant="info">Attend Event</Button>
 
-export default CreateEvent();
-
-function  AttendEvent() {
-  return (
-    <>
-      <Button variant="info">Attend Event</Button>{' '}
-    
-    </>
-  );
-}
-
-// export default AttendEvent();
-
-// export default function User() {
-//   return (
-//     <div className="bodycss">
-// 				<header> 
-// 					<div className="top"></div>
-// 					<br />
-// 					<br />
-// 					<h1 className="logo">EnviroMate Logo</h1>
-// 					<br />
-// 					<br />
-// 				</header>
-
-// 				<body>
-//              <h2 className="heading">Welcome there, {name}!</h2>
-// 			 <br />
-// 			 <br />
-			
-
-// 				</body>
+      </main>
 			
 // 			<footer className="footer">
-
-
 // 			</footer>
 			
-// 		</div>
+     </>
+  )
+};
 
-//   )
-// };
+
+

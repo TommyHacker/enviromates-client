@@ -1,48 +1,30 @@
 import React, { useRef, useEffect, useState } from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
 import '../public/styles/css/main.css';
-import Layout from './Layout';
 import { Routes, Route } from 'react-router-dom';
-import {Home, Login} from './pages';
-
+import * as Pages from './pages';
+import Layout from './Layout';
 
 const name = '';
 
-
 const App = () => {
 	return (
-		<>
-			<div className="bodycss">
-				<header> 
-					<div className="top"></div>
-					<br />
-					<br />
-					<h1 className="logo">EnviroMate Logo</h1>
-					<br />
-					<br />
-          <Routes>		
-            <Route path="/" element={<Layout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="login" element={<Login />} />
+		<>     
+        <Routes>		
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Pages.Home />} />
+            <Route path="/login" element={<Pages.Login />} />
+            <Route path="/:username" element={<Pages.User />} >
+              <Route path="create-event" element={<Pages.CreateEvent />} />
+              <Route path="attend-event" element={<Pages.AttendEvent />} />
+              <Route path="completed-event" element={<Pages.CompletedEvent />} />              
             </Route>
-          </Routes>
-				</header>
+          </Route>
+        </Routes>
+      
+    </>
+	)
 
-			  <main>
-         <h2 className="heading">Welcome, {name}!</h2>
-         <br />
-         <br />
-         
-        </main>
-			
-			  <footer className="footer">
-
-
-			  </footer>
-			
-			</div>
-		</>
-
-	);
 };
 
 export default App;
