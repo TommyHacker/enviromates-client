@@ -1,8 +1,9 @@
-import React from 'react';
-import '../public/styles/css/main.css';
 import Layout from './Layout';
 import { Routes, Route } from 'react-router-dom';
 import {Home, Login} from './pages';
+import React from 'react';
+import '../public/styles/css/main.css';
+
 
 const App = () => {
 	return (
@@ -16,6 +17,13 @@ const App = () => {
                 </Routes>
           
 		
+
+
+
+
+
+
+
 	);
 };
 
