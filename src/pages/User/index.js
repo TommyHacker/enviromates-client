@@ -49,6 +49,7 @@ export default function User() {
 
 			</footer>
 			
-			</div>
+		</div>
+
   )
 };
