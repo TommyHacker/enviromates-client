@@ -1,7 +1,8 @@
 import React from 'react'
 
-export default function index() {
+export default function CreateEvent() {
   return (
     <div>index</div>
   )
 }
+

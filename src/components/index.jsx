@@ -1,11 +1,5 @@
-import React from 'react';
+export { default as NavBar } from './NavBar';
 
-const Component = () => {
-	return (
-		<>
-			<h2>this is a component component!</h2>
-		</>
-	);
-};
+export { default as Map } from './Map';
 
-export default Component;
+export { default as LoginForm } from './LoginForm';
