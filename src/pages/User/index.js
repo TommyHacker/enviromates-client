@@ -37,7 +37,7 @@ export default function User() {
 				</header>
 
 				<body>
-             <h2 className="heading">Welcome, {name}!</h2>
+             <h2 className="heading">Welcome there, {name}!</h2>
 			 <br />
 			 <br />
 			
