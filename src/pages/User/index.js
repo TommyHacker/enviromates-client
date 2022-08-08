@@ -1,5 +1,28 @@
+import Button from 'react-bootstrap/Button';
 import React from 'react'
 import '../public/styles/css/main.css';
+
+function CreateEvent() {
+  return (
+    <>
+      <Button variant="info">Create Event</Button>{' '}
+    
+    </>
+  );
+}
+
+export default CreateEvent();
+
+function  AttendEvent() {
+  return (
+    <>
+      <Button variant="info">Attend Event</Button>{' '}
+    
+    </>
+  );
+}
+
+export default AttendEvent();
 
 export default function User() {
   return (
@@ -17,28 +40,7 @@ export default function User() {
              <h2 className="heading">Welcome, {name}!</h2>
 			 <br />
 			 <br />
-			 <Button variant="contained" style={{
-                  flex: "34%",
-                  minWidth: "200px",
-                  fontSize: "1em",
-                  fontWeight: "bold",
-				  padding: "15px",
-				  margin: "10px"
-                }}>
-				 Create Event
-			 </Button>
-
-			 <Button variant="contained" style={{
-                  flex: "34%",
-                  minWidth: "200px",
-                  fontSize: "1em",
-                  fontWeight: "bold",
-				  padding: "15px",
-				  margin: "10px"
-				  
-                }}>
-				 Attend Event
-			 </Button>
+			
 
 				</body>
 			
@@ -49,4 +51,4 @@ export default function User() {
 			
 			</div>
   )
-}
+};
