@@ -1,19 +1,15 @@
-
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../public/styles/css/main.css';
 import { Routes, Route } from 'react-router-dom';
-import * as Pages  from './pages';
+import * as Pages from './pages';
 import Layout from './Layout';
 
-// const name = '';
-
-
+const name = '';
 
 const App = () => {
 	return (
-		<>
-      
+		<>     
         <Routes>		
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<Pages.Home />} />
@@ -28,6 +24,7 @@ const App = () => {
       
     </>
 	)
+
 };
 
 export default App;

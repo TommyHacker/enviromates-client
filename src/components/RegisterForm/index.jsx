@@ -1,7 +1,7 @@
 import React, { useState } from 'react' 
 import { useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
+import { Form } from 'react-bootstrap'
 
 export default function RegisterForm() {
 
