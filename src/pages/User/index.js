@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import React from 'react'
-import '../public/styles/css/main.css';
+// import '../public/styles/css/main.css';
 
 function CreateEvent() {
   return (
@@ -22,34 +22,34 @@ function  AttendEvent() {
   );
 }
 
-export default AttendEvent();
+// export default AttendEvent();
 
-export default function User() {
-  return (
-    <div className="bodycss">
-				<header> 
-					<div className="top"></div>
-					<br />
-					<br />
-					<h1 className="logo">EnviroMate Logo</h1>
-					<br />
-					<br />
-				</header>
+// export default function User() {
+//   return (
+//     <div className="bodycss">
+// 				<header> 
+// 					<div className="top"></div>
+// 					<br />
+// 					<br />
+// 					<h1 className="logo">EnviroMate Logo</h1>
+// 					<br />
+// 					<br />
+// 				</header>
 
-				<body>
-             <h2 className="heading">Welcome there, {name}!</h2>
-			 <br />
-			 <br />
+// 				<body>
+//              <h2 className="heading">Welcome there, {name}!</h2>
+// 			 <br />
+// 			 <br />
 			
 
-				</body>
+// 				</body>
 			
-			<footer className="footer">
+// 			<footer className="footer">
 
 
-			</footer>
+// 			</footer>
 			
-		</div>
+// 		</div>
 
-  )
-};
+//   )
+// };
