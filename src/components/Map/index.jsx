@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './style.css'
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+
  
 const Map = () => {
 
@@ -16,7 +17,7 @@ useEffect(() => {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
     container: mapContainer.current,
-    style: 'mapbox://styles/mapbox/streets-v11',
+    style: 'mapbox://styles/gondolf/cl6kwe4fz003c14mr3doqd0sx',
     center: [lng, lat],
     zoom: zoom
     });
@@ -30,6 +31,31 @@ useEffect(() => {
         setZoom(map.current.getZoom().toFixed(2));
         });
         });
+    
+    // useEffect(() => {
+    //     map.current.on('load', function(){
+    //         map.current.addLayer({
+    //             'id': 'Airports',
+    //             'type': 'symbol',
+    //             'source': 'Airport_points',
+    //             'layout': {
+    //                 'icon-image': 'Airport_icon',
+    //                 'icon-size': 100
+    //             }
+    //         })
+    //         map.current.addSource('Airport_points', {
+    //             type: 'geojson',
+    //             data: 'https://cloud.maptiler.com/data/7aad02b2-473d-437f-80ee-41c9911e3368/#13.24/51.4989/-0.10096'
+    //         });
+    
+    //     })
+    // });
+    
+
+    // // map.addSource('Airport_points', {
+    // //     type: 'geojson',
+    // //     data: ''
+    // // })
 
 return (
     <div>
