@@ -10,3 +10,4 @@ export { default as RegisterForm } from './RegisterForm';
 
 export { default as MapStatic } from './MapStatic';
 
+export { default as Coordinates } from './Coordinates'
