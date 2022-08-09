@@ -1,16 +1,14 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import { NavBar, Background } from '../components'
-
+import { Navigation, Background} from '../components'
 
 export default function Layout() {
 
   return (
     <div>
-      <NavBar />
-         <Background/> 
+      <Navigation />
+        <Background/> 
       <Outlet />
     </div>
-  )
-  
+  ) 
 }

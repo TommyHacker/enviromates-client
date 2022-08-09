@@ -1,30 +1,33 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useLottie } from "lottie-react";
-import submitBtnAnimation from '../../assets/animations/submitBtn.json'
 import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/esm/Container';
 
-const style = {
-    height: 300,
-};
 
 export default function SubmitButton() {
 
-    // const [button, setButton] =
+    const svgContainer = useRef();
     
-    const options = {
-        animationData: submitBtnAnimation,
-        loop: 1
-    }
-    
-    const { View } = useLottie(options, style);
-    
+    const animItem = bodymovin.loadAnimation({
+        wrapper: svgContainer,
+        animType: "svg",
+        loop: false,
+        autoplay: false,
+        path: "https://assets10.lottiefiles.com/private_files/lf30_9eI41y.json"
+    })
+
     function handleClick(){
-        return View
+        svgContainer.className.remove('hide')
+        animItem.goToAndPlay(0,true)
     }
 
     return (
         <>
-            <Button type="submit" onClick={ handleClick }>Send</Button>
+            <Container className="lottie-container">
+                <div className="svgContainer hide" ref={svgContainer} id="svg"></div>
+                <Button className="submitBtn" type="submit" onClick={handleClick}>Send</Button>
+            </Container>
+          
              {/* <h3>Thank you!</h3> */}
         </>
     )
