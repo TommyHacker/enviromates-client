@@ -1,9 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './style.css'
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
- 
-const Map = () => {
 
+const Map = () => {
 return (
     // Each Component needs to be declared
     <div>

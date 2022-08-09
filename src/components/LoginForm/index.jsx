@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
+import SubmitButton from '../SubmitButton'
+// import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 
@@ -21,7 +22,7 @@ export default function LoginForm() {
     function handleSubmit(e){
         e.preventDefault()
         setSubmitDetails(username, password)
-        navigate('/:username', {state: {username: username, password: password}})
+        navigate('/username', {state: {username: username, password: password}})
         setUsername('')
         setPassword('')
     }
@@ -39,8 +40,10 @@ export default function LoginForm() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Type your password" value={password} onChange={handlePassword} />
                 </Form.Group>
+
+                <SubmitButton />
             
-                <Button variant="primary" type="submit">Submit</Button>
+                {/* <Button className="submitBtn" variant="primary" type="submit">Submit</Button> */}
             </Form>
         </Container>
     </>
