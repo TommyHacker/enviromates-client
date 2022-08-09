@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/images/logo.png'
 
-const NavBar = () => {
+const Navigation = () => {
 
   return (
     <>
@@ -34,4 +34,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar;
+export default Navigation;

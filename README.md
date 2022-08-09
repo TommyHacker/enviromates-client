@@ -17,7 +17,7 @@ Changelog:
         # file-loader
         
     - added the routes in App.js
-    - created NavBar
+    - created Navigation
     - created Map component
     - created Login, Register and Create Event Forms
     - 
