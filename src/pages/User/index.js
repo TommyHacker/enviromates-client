@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container'
 import { Map } from '../../components'
 
 export default function User() {
@@ -9,7 +10,7 @@ export default function User() {
   return (
     <>
       <main>
-        <h2>Welcome there, {username}!</h2>
+        {/* <h2>Welcome there, {username}!</h2> */}
       <br />
       <br />
         <Button variant="info" onClick={() => navigate('/create-event')}>Create an Event</Button>
@@ -17,9 +18,9 @@ export default function User() {
 
       </main>
 
-      <div>
+      <Container>
           <Map />
-			</div>
+			</Container>
 
 			<footer className="footer">
  			</footer>
