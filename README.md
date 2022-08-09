@@ -12,12 +12,14 @@ Changelog:
         # react-redux
         # redux-toolkit
         # @reactjs/toolkit
-        # @mui/material
+        # react-bootstrap bootstrap
         # axios
         # file-loader
+        # lottie-web
+        # leafletjs
         
     - added the routes in App.js
     - created Navigation
     - created Map component
     - created Login, Register and Create Event Forms
-    - 
+    - Created Coordinate tracker / map feature / 
