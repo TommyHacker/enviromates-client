@@ -1,24 +1,28 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import '../public/styles/css/main.css';
-import Layout from './Layout';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from 'react-router-dom';
-import {Home, Login} from './pages';
-
+import * as Pages from './pages';
+import Layout from './Layout';
 
 const name = '';
 
-
 const App = () => {
 	return (
-		<>
-          <Routes>		
-            <Route path="/" element={<Layout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="login" element={<Login />} />
-            </Route>
-          </Routes>
-		</>
-	);
+		<>     
+        <Routes>		
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Pages.Home />} />
+            <Route path="/login" element={<Pages.Login />} />
+            <Route path="/:username" element={<Pages.User />} />
+            <Route path="create-event" element={<Pages.CreateEvent />} />
+            <Route path="attend-event" element={<Pages.AttendEvent />} />
+            <Route path="completed-event" element={<Pages.CompletedEvent />} />              
+          </Route>
+        </Routes>
+      
+    </>
+	)
 };
 
 export default App;
