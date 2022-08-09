@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -23,8 +23,8 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Link className="home-link" to="/">Home</Link>
-              <Link className="login-link" to="/login">Login</Link>
+              <Nav.Link className="home-link" href="/">Home</Nav.Link>
+              <Nav.Link className="login-link" href="/login">Login</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
