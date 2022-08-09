@@ -1,0 +1,20 @@
+@keyframes text-fade {
+    0% {
+        color: transparent;
+        opacity: 1;
+        top: -50%;
+        left: auto;
+    }
+    1% {
+        color: transparent;
+        opacity: 0;
+    } 
+    50%{
+        color: transparent;
+        opacity: 0;
+    }
+    100% {
+        color: #2A3439;
+        opacity: 1;
+    } 
+  }
