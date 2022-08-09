@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import { Map } from '../../components'
 
 export default function User() {
   const navigate = useNavigate()
@@ -16,9 +17,12 @@ export default function User() {
 
       </main>
 
-			
-// 			<footer className="footer">
-// 			</footer>
+      <div>
+          <Map />
+			</div>
+
+			<footer className="footer">
+ 			</footer>
 			
      </>
   )
