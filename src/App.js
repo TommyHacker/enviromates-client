@@ -14,7 +14,7 @@ const App = () => {
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<Pages.Home />} />
             <Route path="/login" element={<Pages.Login />} />
-            <Route path="/:username" element={<Pages.User />} />
+            <Route path="/username" element={<Pages.User />} />
             <Route path="create-event" element={<Pages.CreateEvent />} />
             <Route path="attend-event" element={<Pages.AttendEvent />} />
             <Route path="completed-event" element={<Pages.CompletedEvent />} />              
@@ -23,7 +23,6 @@ const App = () => {
       
     </>
 	)
-
 };
 
 export default App;
