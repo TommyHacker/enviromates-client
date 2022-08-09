@@ -10,9 +10,11 @@ Changelog:
     - added packages :
         # react-router
         # react-redux
+        # redux-toolkit
         # @reactjs/toolkit
         # @mui/material
         # axios
         # file-loader
+        
     - added the routes in App.js
     - created NavBar
