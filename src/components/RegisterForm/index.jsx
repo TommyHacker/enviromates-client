@@ -1,7 +1,8 @@
 import React, { useState } from 'react' 
 import { useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
-import { Form } from 'react-bootstrap'
+import Container from 'react-bootstrap/Container'
+import Form from 'react-bootstrap/Form'
 
 export default function RegisterForm() {
 
@@ -60,35 +61,36 @@ export default function RegisterForm() {
 
   return (
     <div>
-        <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="registerUsername">
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="Type your username" name="username" value={state.username} onChange={handleInput} />
-            </Form.Group>
+        <Container>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="registerUsername">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control type="text" placeholder="Type your username" name="username" value={state.username} onChange={handleInput} />
+                </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formFirstName">
-                <Form.Label>First name</Form.Label>
-                <Form.Control type="text" placeholder="First name" name="firstName" value={state.firstName} onChange={handleInput} />
-            </Form.Group>
+                <Form.Group className="mb-3" controlId="formFirstName">
+                    <Form.Label>First name</Form.Label>
+                    <Form.Control type="text" placeholder="First name" name="firstName" value={state.firstName} onChange={handleInput} />
+                </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formLastName">
-                <Form.Label>Last name</Form.Label>
-                <Form.Control type="text" placeholder="Last name" name="lastName" value={state.lastName} onChange={handleInput} />
-            </Form.Group>
+                <Form.Group className="mb-3" controlId="formLastName">
+                    <Form.Label>Last name</Form.Label>
+                    <Form.Control type="text" placeholder="Last name" name="lastName" value={state.lastName} onChange={handleInput} />
+                </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter your email" name="email" value={state.email} onChange={handleInput} />
-            </Form.Group>
+                <Form.Group className="mb-3" controlId="formEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Enter your email" name="email" value={state.email} onChange={handleInput} />
+                </Form.Group>
 
-            <Form.Group className="mb-3" controlId="registerPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Type your password" name="password" value={state.firstName} onChange={handleInput} />
-            </Form.Group>
-          
-            <Button variant="primary" type="submit">Submit</Button>
-        </Form>
-    
+                <Form.Group className="mb-3" controlId="registerPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Type your password" name="password" value={state.firstName} onChange={handleInput} />
+                </Form.Group>
+            
+                <Button variant="primary" type="submit">Submit</Button>
+            </Form>
+        </Container>
     </div>
   )
 }

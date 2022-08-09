@@ -18,3 +18,6 @@ Changelog:
         
     - added the routes in App.js
     - created NavBar
+    - created Map component
+    - created Login, Register and Create Event Forms
+    - 
