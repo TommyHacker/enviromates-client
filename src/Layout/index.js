@@ -1,13 +1,13 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import { NavBar } from '../components'
+import { Navigation } from '../components'
 
 
 export default function Layout() {
 
   return (
     <div>
-        <NavBar />
+        <Navigation />
         
         <Outlet />
     </div>

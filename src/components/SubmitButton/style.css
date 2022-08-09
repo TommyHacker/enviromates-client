@@ -1,4 +1,4 @@
-@keyframes text-fade {
+/* @keyframes text-fade {
     0% {
         color: transparent;
         opacity: 1;
@@ -17,4 +17,42 @@
         color: #2A3439;
         opacity: 1;
     } 
-  }
+  } */
+
+.lottie-container{
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+.submitBtn{
+    background: #CA9AFE;
+    border-radius: 40px;
+    margin-top: 2em;
+    border: none;
+    padding: 1em;
+    color: #2A3439;
+    font-weight: 500;
+    outline: 0;
+}
+
+.submitBtn:hover{
+    background: #E5CCFF;
+}
+
+.submitBtn:active{
+    background: #EFA6C7 ;
+}
+
+.svg{
+    width: 200px;
+    position: absolute;
+    top: -40px;
+    left: -30px;
+    pointer-events: none;
+}
+
+.hide{
+    display: none;
+}
