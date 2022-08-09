@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import '../public/styles/css/main.css';
 import Layout from './Layout';
 import { Routes, Route } from 'react-router-dom';
 import {Home, Login} from './pages';
-import Button from '@mui/material/Button';
+
 
 const name = '';
 
@@ -31,28 +31,7 @@ const App = () => {
          <h2 className="heading">Welcome, {name}!</h2>
          <br />
          <br />
-         <Button variant="contained" style={{
-                    flex: "34%",
-                    minWidth: "200px",
-                    fontSize: "1em",
-                    fontWeight: "bold",
-            padding: "15px",
-            margin: "10px"
-                  }}>
-           Create Event
-         </Button>
-
-         <Button variant="contained" style={{
-                    flex: "34%",
-                    minWidth: "200px",
-                    fontSize: "1em",
-                    fontWeight: "bold",
-            padding: "15px",
-
-                  }}>
-           Attend Event
-         </Button>
-
+         
         </main>
 			
 			  <footer className="footer">
