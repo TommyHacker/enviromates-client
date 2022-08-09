@@ -13,7 +13,7 @@ export default function CreateEvent() {
       location: "", 
       eventName: "",
       description: "", 
-    })
+  })
   const [level, setLevel] = useState('')
   const [eventDate, setEventDate] = useState('')
   const [submitDetails, setSubmitDetails] = useState('')

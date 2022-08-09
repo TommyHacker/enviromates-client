@@ -11,10 +11,11 @@ export default function User() {
         <h2>Welcome there, {username}!</h2>
       <br />
       <br />
-        <Button variant="info" onClick={() => navigate('/:username/create-event')}>Create an Event</Button>
-        <Button variant="info" onClick={() => navigate('/:username/attend-event')}>Attend an Event</Button>
+        <Button variant="info" onClick={() => navigate('/create-event')}>Create an Event</Button>
+        <Button variant="info" onClick={() => navigate('/attend-event')}>Attend an Event</Button>
 
       </main>
+
 			
 // 			<footer className="footer">
 // 			</footer>
