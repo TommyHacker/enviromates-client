@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ImageUpload from '../../components/ImageUpload'
-import { MapStatic } from '../../components/'
+import { Map } from '../../components/'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
@@ -118,7 +118,8 @@ export default function CreateEvent() {
       
       {/* MAP COMPONENT ------------------------- */}
       <Container>
-         <MapStatic/>
+         
+         <Map/>
       </Container>
     </div>
   )
