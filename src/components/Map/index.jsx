@@ -15,7 +15,7 @@ return (
             <Marker position={[51.505, -0.1075]}>
                 <Popup>
                     --ALERT--  <br /> 
-                    Date: 15/08 <br/>
+                    Date:  <br/>
                     Challenge: *** <br />
                     Host: Chaz <br/>
                     Attendees: 107 <br/>
