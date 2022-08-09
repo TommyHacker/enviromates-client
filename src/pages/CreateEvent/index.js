@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Button from 'react-bootstrap/Button';
 
 export default function CreateEvent() {
   return (
-    <div>index</div>
+    <div>
+    <Button variant="info">Create Event</Button>{' '}
+    </div>
   )
 }
 

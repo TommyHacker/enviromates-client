@@ -1,28 +1,6 @@
-import Button from 'react-bootstrap/Button';
 import React from 'react'
 import '../public/styles/css/main.css';
 
-function CreateEvent() {
-  return (
-    <>
-      <Button variant="info">Create Event</Button>{' '}
-    
-    </>
-  );
-}
-
-export default CreateEvent();
-
-function  AttendEvent() {
-  return (
-    <>
-      <Button variant="info">Attend Event</Button>{' '}
-    
-    </>
-  );
-}
-
-export default AttendEvent();
 
 export default function User() {
   return (
@@ -37,7 +15,7 @@ export default function User() {
 				</header>
 
 				<body>
-             <h2 className="heading">Welcome there, {name}!</h2>
+             <h2 className="heading">Welcome, {name}!</h2>
 			 <br />
 			 <br />
 			
