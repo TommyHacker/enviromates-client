@@ -4,8 +4,21 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/images/logo.png';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { userActions } from '../../redux-toolkit/user';
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
+	const user = useSelector((state) => state.user);
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
+	const logOutHandler = () => {
+		dispatch(userActions.setUser(''));
+		window.localStorage.removeItem('accesstoken');
+		navigate('/login');
+	};
+
 	return (
 		<>
 			<Navbar bg='light' variant='light' expand='lg'>
@@ -26,9 +39,12 @@ const NavBar = () => {
 								Home
 							</Link>
 
-							<Link className='login-link' to={'/login'}>
-								Login
-							</Link>
+							{!user.username && (
+								<Link className='login-link' to={'/login'}>
+									Login
+								</Link>
+							)}
+							{user.username && <a onClick={logOutHandler}>Log out</a>}
 						</Nav>
 					</Navbar.Collapse>
 				</Container>

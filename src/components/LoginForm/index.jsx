@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import { userActions } from '../../redux-toolkit/user';
 
-export default function LoginForm() {
+const LoginForm = ({ setSwitchForm }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
@@ -23,6 +23,7 @@ export default function LoginForm() {
 		formData.append('username', username);
 		formData.append('password', password);
 		console.log('going to post fetch to login now');
+
 		axios
 			.post('http://localhost:8000/users/login', formData)
 			.then((res) => {
@@ -50,6 +51,7 @@ export default function LoginForm() {
 							createdAt: data.created_at,
 						})
 					);
+					navigate('/');
 				} else {
 					return;
 				}
@@ -60,7 +62,6 @@ export default function LoginForm() {
 	return (
 		<>
 			<Container>
-				<h1>FUCCIN LOGIN MEIGHT"</h1>
 				<Form onSubmit={handleSubmit}>
 					<Form.Group className='mb-3' controlId='username'>
 						<Form.Label>Username</Form.Label>
@@ -85,8 +86,13 @@ export default function LoginForm() {
 					<SubmitButton />
 
 					{/* <Button className="submitBtn" variant="primary" type="submit">Submit</Button> */}
+					<p onClick={() => setSwitchForm((prev) => !prev)}>
+						Don't have an account? Register here
+					</p>
 				</Form>
 			</Container>
 		</>
 	);
-}
+};
+
+export default LoginForm;

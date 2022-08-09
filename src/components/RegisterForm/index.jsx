@@ -3,9 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
+import { useDispatch, useSelector } from 'react-redux';
+import { userActions } from '../../redux-toolkit/user';
+import axios from 'axios';
 
-export default function RegisterForm() {
+const RegisterForm = ({ setSwitchForm }) => {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
+
+	const user = useSelector((state) => state.user);
 
 	const [username, setUsername] = useState('');
 	const [firstName, setFirstName] = useState('');
@@ -13,27 +19,54 @@ export default function RegisterForm() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
-	function handleSubmit(e) {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log(e.target);
-		// setSubmitDetails('Submitting...')
-		// fetch('https://enviromates.herokuapp.com/users/', {
-		// 			method: 'POST',
-		// 			body: JSON.stringify(state),
-		// 		})
-		// 			.then((res) => res.json())
-		// 			.then((data) => {
-		// 				if (data.success) {
-		// 					setSubmitDetails('Successfully registered!');
-		// 					navigate('/login');
-		// 				} else {
-		// 					setSubmitDetails(data.message);
-		// 				}
-		// 			})
-		// 			.catch((err) => {
-		// 				setSubmitDetails('Error!');
-		// 			});
-	}
+		const formData = new FormData();
+		formData.append('username', username);
+		formData.append('first-name', firstName);
+		formData.append('last-name', lastName);
+		formData.append('email', email);
+		formData.append('password', password);
+		console.log('going to post fetch to login now');
+
+		axios
+			.post('http://localhost:8000/users/register', formData)
+			.then((res) => {
+				if (res.data.success === 'True') {
+					try {
+						console.log(res);
+						// remove old access token incase there is one
+						window.localStorage.removeItem('accesstoken');
+						// store new fresh accesstoken
+						window.localStorage.setItem('accesstoken', res.data.token);
+
+						// grab the user data
+						const data = res.data.user;
+
+						// update user data
+						dispatch(
+							userActions.setUser({
+								...user,
+								id: data.id,
+								username: data.username,
+								firstName: data.first_name,
+								lastName: data.last_name,
+								email: data.email,
+								eventsAttended: data.events_attended_by_user,
+								eventsHosted: data.events_hosted_by_user,
+								createdAt: data.created_at,
+							})
+						);
+						navigate('/');
+					} catch (err) {
+						console.log(err);
+					}
+				} else {
+					return;
+				}
+			})
+			.catch((err) => console.log(err));
+	};
 
 	return (
 		<div>
@@ -97,8 +130,13 @@ export default function RegisterForm() {
 					<Button variant='primary' type='submit'>
 						Submit
 					</Button>
+					<p onClick={() => setSwitchForm((prev) => !prev)}>
+						Already have an account? Login here
+					</p>
 				</Form>
 			</Container>
 		</div>
 	);
-}
+};
+
+export default RegisterForm;
