@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from 'react'
 import lottie from "lottie-web"
 // import Button from 'react-bootstrap/Button'
@@ -13,7 +14,7 @@ export default function AnimBtn() {
             container: anime.current,
             renderer: "svg",
             loop: false,
-            autoplay: false,
+            autoplay: true,
             animationData: AnimationBtn
         });
         return () => lottie.stop();        
