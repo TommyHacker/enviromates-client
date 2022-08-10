@@ -45,6 +45,9 @@ const Navigation = () => {
 								</Link>
 							)}
 							{user.username && <a onClick={logOutHandler}>Log out</a>}
+							{user.username && (
+								<a onClick={() => navigate('/create-event')}>create event</a>
+							)}
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
