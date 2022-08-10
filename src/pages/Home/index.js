@@ -26,7 +26,7 @@ export default function Home() {
 			animate={{opacity: 1}}
 			transition={{ delay: 0, duration: 1.5}}
 			exit={{opacity: 0}}
-			style={{marginTop:'20vh', height:'100%'}}
+			
 			>
 			{/* <img className='main-logo' src={logo} alt='logo'></img> */}
 			<Container className='h-100 d-flex flex-column justify-content-center'
