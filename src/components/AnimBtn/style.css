@@ -31,7 +31,7 @@
     border-radius: 40px;
     margin-top: 2em;
     border: none;
-    padding: 1em;
+    padding: 1em 2em;
     color: #2A3439;
     font-weight: 500;
     outline: 0;
@@ -39,10 +39,13 @@
 
 .submitBtn:hover{
     background: #E5CCFF;
+    color: #2A3439;
 }
 
 .submitBtn:active{
     background: #EFA6C7 ;
+    outline: none;
+    border: none;
 }
 
 .svg{
