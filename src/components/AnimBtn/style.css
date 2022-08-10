@@ -27,13 +27,14 @@
 }
 
 .submitBtn{
-    background: #CA9AFE;
+    background: #7CB579;
     border-radius: 40px;
     margin-top: 2em;
     border: none;
-    padding: 1em 2em;
-    color: #2A3439;
-    font-weight: 500;
+    padding: 0.7em 1em;
+    color: #fff;
+    font-weight: 400;
+    font-size: 1rem;
     outline: 0;
 }
 

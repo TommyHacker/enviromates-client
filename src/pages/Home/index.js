@@ -33,7 +33,7 @@ export default function Home() {
 			style={{marginTop:'110px', height:'100%'}}>
 				{/* <Image fluid src={logo} alt="logo"></Image> */}
 				<Row className='mt-5 d-flex justify-content-center'>
-					<h1 className='catch-phrase display-1'>Catch Phrase and Animation</h1>
+					<h1 className='catch-phrase text-center display-1'>Making change, together!</h1>
 				</Row>
 				<Row>
 					<Col className='my-5 d-flex justify-content-center align-items-center'>
@@ -41,14 +41,14 @@ export default function Home() {
               <Card.Body>
                 <Row className='align-items-start'>
                   <Col xs={4}>
-                    <Image style={{width: '3.5rem'}} src={locationPointer} />  
+                    <Image style={{width: '3.8rem'}} src={locationPointer} />  
                   </Col>
                   <Col xs={8}>
                     <Card.Title><h3 className='card-title'>Location Alert</h3></Card.Title>
                   </Col>
                 </Row>
-                <Card.Text>
-                Mark a place to clean here. Be an Enviromate!
+                <Card.Text className='py-3'>
+                Mark a place to clean here. <br/>Be an Enviromate!
                 </Card.Text>
                 <Row className='d-flex justify-content-center align-items-center' >
                   <button className='navBtn' onClick={timer}>
@@ -69,7 +69,7 @@ export default function Home() {
                     <Image className='me-1' style={{width: '5.5rem'}} src={takeAction} />
                   </Col>
                 </Row>
-								<Card.Text>
+								<Card.Text className='py-3'>
 									Ready to take action ? Meet other Enviromates!
 								</Card.Text>
                 <Row className='d-flex justify-content-center align-items-center' >

@@ -36,13 +36,13 @@ const Navigation = () => {
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
-						<Nav className='me-auto'>
-							<Link className='home-link' to={'/'}>
+						<Nav className='me-auto mb-3'>
+							<Link className='link home-link' to={'/'}>
 								Home
 							</Link>
 
 							{!user.username && (
-								<Link className='login-link' to={'/login'}>
+								<Link className='link login-link' to={'/login'}>
 									Login
 								</Link>
 							)}
