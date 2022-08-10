@@ -10,7 +10,7 @@ import './style.css';
 export default function Home() {
 	return (
 		<div>
-			<img className='main-logo' src={logo} alt='logo'></img>
+			{/* <img className='main-logo' src={logo} alt='logo'></img> */}
 			<Container className='d-flex flex-column justify-content-center'>
 				{/* <Image fluid src={logo} alt="logo"></Image> */}
 				<Row className='mt-5 d-flex justify-content-center'>

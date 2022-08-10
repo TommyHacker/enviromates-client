@@ -8,8 +8,8 @@ import Image from 'react-bootstrap/Image'
 export default function Background() {
     return (
       <>
-        <Container style={{margin: '0', padding: '0'}}>
-           <Image className='background' src={background} alt="background"></Image>
+        <Container style={{margin: '0', padding: '0', width: '100%'}}>
+           <Image fluid className='background' src={background} alt="background"></Image>
          </Container>
       </>
     )
