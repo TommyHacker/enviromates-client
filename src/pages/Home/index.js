@@ -6,7 +6,6 @@ import Image from 'react-bootstrap/Image'
 import Row from 'react-bootstrap/Row'
 import logo from '../../assets/images/logo.png'
 import './style.css'
-
 export default function Home() {
   return (
     <div>
@@ -22,7 +21,7 @@ export default function Home() {
             <Card style={{ width: '18rem' }}>
               <Card.Img variant='top' src='holder.js/100px180' />
               <Card.Body>
-                <Card.Title>Location Alert</Card.Title>
+                <Card.Title><h3>Location Alert</h3></Card.Title>
                 <Card.Text>
                   Mark a place to clean here. Be an Enviromate! 
                 </Card.Text>
@@ -34,7 +33,7 @@ export default function Home() {
             <Card style={{ width: '18rem' }}>
               <Card.Img variant='top' src='holder.js/100px180' />
               <Card.Body>
-                <Card.Title>Location Alert</Card.Title>
+                <Card.Title><h3>Location Alert</h3></Card.Title>
                 <Card.Text>
                   Ready to take action ? Meet other Enviromates! 
                 </Card.Text>
@@ -45,8 +44,7 @@ export default function Home() {
 
         </Row>
       </Container>
-    </div>
+      </div>
   )
 }
-
 
