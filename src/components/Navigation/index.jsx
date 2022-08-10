@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { userActions } from '../../redux-toolkit/user';
 import { useNavigate } from 'react-router-dom';
+import './style.css';
 
 const Navigation = () => {
 	const user = useSelector((state) => state.user);
@@ -21,7 +22,8 @@ const Navigation = () => {
 
 	return (
 		<>
-			<Navbar bg='light' variant='light' expand='lg'>
+		<Container fluid>
+			<Navbar className='navbar-main' bg='light' variant='light' expand='lg'>
 				<Container fluid>
 					<Navbar.Brand href='/'>
 						<img
@@ -34,13 +36,13 @@ const Navigation = () => {
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
-						<Nav className='me-auto'>
-							<Link className='home-link' to={'/'}>
+						<Nav className='me-auto mb-3'>
+							<Link className='link home-link' to={'/'}>
 								Home
 							</Link>
 
 							{!user.username && (
-								<Link className='login-link' to={'/login'}>
+								<Link className='link login-link' to={'/login'}>
 									Login
 								</Link>
 							)}
@@ -52,6 +54,7 @@ const Navigation = () => {
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>
+			</Container>
 		</>
 	);
 };

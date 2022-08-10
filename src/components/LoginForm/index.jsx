@@ -4,10 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import axios from 'axios';
+import Row from 'react-bootstrap/Row';
 import { userActions } from '../../redux-toolkit/user';
+import AnimBtn from '../AnimBtn';
+import './style.css';
 
 const LoginForm = ({ setSwitchForm }) => {
+	const [isLoading, setIsLoading] = useState(false);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
@@ -18,6 +21,7 @@ const LoginForm = ({ setSwitchForm }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setIsLoading(true);
 		const formData = new FormData();
 		formData.append('username', username);
 		formData.append('password', password);
@@ -30,6 +34,7 @@ const LoginForm = ({ setSwitchForm }) => {
 
 		fetch('https://enviromates.herokuapp.com/users/login', options)
 			.then((result) => result.json())
+
 			.then((res) => {
 				if (res.success === 'True') {
 					console.log(res);
@@ -64,12 +69,23 @@ const LoginForm = ({ setSwitchForm }) => {
 	};
 
 	return (
-		<>
-			<Container>
-				<Form onSubmit={handleSubmit}>
+		<div>
+			<Container className='p-5 d-flex flex-column justify-content-center'>
+				<Row className='p-3 d-flex flex-column justify-content-center'>
+					<h1 className='display-2 text-center'>Sign in</h1>
+					<p
+						className='redirect text-center'
+						onClick={() => setSwitchForm((prev) => !prev)}>
+						Don't have an account? Register <strong>here</strong>
+					</p>
+				</Row>
+				<Form className='form p-4' onSubmit={handleSubmit}>
 					<Form.Group className='mb-3' controlId='username'>
-						<Form.Label>Username</Form.Label>
+						<Form.Label>
+							<h3>Username</h3>
+						</Form.Label>
 						<Form.Control
+							className='input mb-3 p-2'
 							type='text'
 							placeholder='Type your username'
 							value={username}
@@ -78,24 +94,29 @@ const LoginForm = ({ setSwitchForm }) => {
 					</Form.Group>
 
 					<Form.Group className='mb-3' controlId='password'>
-						<Form.Label>Password</Form.Label>
+						<Form.Label>
+							<h3>Password</h3>
+						</Form.Label>
 						<Form.Control
+							className='input p-2'
 							type='password'
 							placeholder='Type your password'
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 					</Form.Group>
-
-					<Button className='submitBtn' variant='primary' type='submit'>
-						Submit
-					</Button>
-					<p onClick={() => setSwitchForm((prev) => !prev)}>
-						Don't have an account? Register here
-					</p>
+					<Row className='p-3 d-flex justify-content-center align-items-center'>
+						{!isLoading ? (
+							<button className='submitBtn' variant='primary' type='submit'>
+								Submit
+							</button>
+						) : (
+							<AnimBtn />
+						)}
+					</Row>
 				</Form>
 			</Container>
-		</>
+		</div>
 	);
 };
 

@@ -5,6 +5,8 @@ import { Map } from '../../components';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
+import axios from 'axios';
+import { motion } from 'framer-motion';
 const url = 'https://api.cloudinary.com/v1_1/dgoun8ulz/image/upload';
 import { useSelector } from 'react-redux';
 
@@ -61,7 +63,12 @@ export default function CreateEvent() {
 	};
 
 	return (
-		<div>
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ delay: 0, duration: 1.5 }}
+			exit={{ opacity: 0 }}
+			style={{ marginTop: '20vh', height: '100%' }}>
 			<Container>
 				<Form onSubmit={handleSubmit}>
 					<Form.Group className='mb-3' controlId='formEventName'>
@@ -130,6 +137,6 @@ export default function CreateEvent() {
 			<Container>
 				<Map />
 			</Container>
-		</div>
+		</motion.div>
 	);
 }

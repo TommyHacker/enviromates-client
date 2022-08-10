@@ -3,11 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
 import { useDispatch, useSelector } from 'react-redux';
 import { userActions } from '../../redux-toolkit/user';
 import axios from 'axios';
+import AnimBtn from '../AnimBtn';
+
 
 const RegisterForm = ({ setSwitchForm }) => {
+	const [isLoading, setIsLoading] = useState(false);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
@@ -21,6 +25,7 @@ const RegisterForm = ({ setSwitchForm }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setIsLoading(true)
 		const formData = new FormData();
 		formData.append('username', username);
 		formData.append('first-name', firstName);
@@ -76,11 +81,18 @@ const RegisterForm = ({ setSwitchForm }) => {
 
 	return (
 		<div>
-			<Container>
-				<Form onSubmit={handleSubmit}>
+			<Container className='p-5 d-flex flex-column justify-content-center'>
+				<Row className='p-3 d-flex flex-column justify-content-center'>
+					<h1 className='display-2 text-center'>Register</h1>
+					<p className='redirect text-center' onClick={() => setSwitchForm((prev) => !prev)}>
+						Already have an account? Login here
+					</p>
+				</Row>
+				<Form className='form p-4' onSubmit={handleSubmit}>
 					<Form.Group className='mb-3' controlId='registerUsername'>
-						<Form.Label>Username</Form.Label>
+						<Form.Label><h3>Username</h3></Form.Label>
 						<Form.Control
+							className='input mb-3 p-2'
 							type='text'
 							placeholder='Type your username'
 							name='username'
@@ -90,8 +102,9 @@ const RegisterForm = ({ setSwitchForm }) => {
 					</Form.Group>
 
 					<Form.Group className='mb-3' controlId='formFirstName'>
-						<Form.Label>First name</Form.Label>
+						<Form.Label><h3>First name</h3></Form.Label>
 						<Form.Control
+							className='input p-2'
 							type='text'
 							placeholder='First name'
 							name='firstName'
@@ -101,8 +114,9 @@ const RegisterForm = ({ setSwitchForm }) => {
 					</Form.Group>
 
 					<Form.Group className='mb-3' controlId='formLastName'>
-						<Form.Label>Last name</Form.Label>
+						<Form.Label><h3>Last name</h3></Form.Label>
 						<Form.Control
+							className='input p-2'
 							type='text'
 							placeholder='Last name'
 							name='lastName'
@@ -112,8 +126,9 @@ const RegisterForm = ({ setSwitchForm }) => {
 					</Form.Group>
 
 					<Form.Group className='mb-3' controlId='formEmail'>
-						<Form.Label>Email address</Form.Label>
+						<Form.Label><h3>Email address</h3></Form.Label>
 						<Form.Control
+							className='input p-2'
 							type='email'
 							placeholder='Enter your email'
 							name='email'
@@ -123,8 +138,9 @@ const RegisterForm = ({ setSwitchForm }) => {
 					</Form.Group>
 
 					<Form.Group className='mb-3' controlId='registerPassword'>
-						<Form.Label>Password</Form.Label>
+						<Form.Label><h3>Password</h3></Form.Label>
 						<Form.Control
+							className='input p-2'
 							type='password'
 							placeholder='Type your password'
 							name='password'
@@ -133,13 +149,13 @@ const RegisterForm = ({ setSwitchForm }) => {
 						/>
 					</Form.Group>
 
-					<Button variant='primary' type='submit'>
-						Submit
-					</Button>
-					<p onClick={() => setSwitchForm((prev) => !prev)}>
-						Already have an account? Login here
-					</p>
-				</Form>
+					<Row className='p-3 d-flex justify-content-center align-items-center' >
+						{!isLoading ? <button className='submitBtn' variant='primary' type='submit'>
+							Submit
+						</button>
+						: <AnimBtn /> }						
+					</Row>
+				</Form>				
 			</Container>
 		</div>
 	);

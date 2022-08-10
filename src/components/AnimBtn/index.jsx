@@ -1,7 +1,6 @@
+
 import React, { useRef, useEffect } from 'react'
 import lottie from "lottie-web"
-// import Button from 'react-bootstrap/Button'
-// import Container from 'react-bootstrap/esm/Container';
 import AnimationBtn from '../../assets/animations/AnimationBtn.json'
 import './style.css'
 
@@ -13,13 +12,13 @@ export default function AnimBtn() {
             container: anime.current,
             renderer: "svg",
             loop: false,
-            autoplay: false,
+            autoplay: true,
             animationData: AnimationBtn
         });
         return () => lottie.stop();        
     }, []);
 
-    return <div style={{ height: 250, width: 300 }} ref={anime}></div>;
+    return <div style={{ height: 250, width: 300, transition: 0.5 }} ref={anime}></div>;
     
     
     

@@ -1,0 +1,19 @@
+.link{
+    text-decoration: none;
+    color: #2A3439;
+    padding-left: 1.5rem;
+}
+
+.link:active{
+    color: #7CB579;
+}
+
+.navbar-light .navbar-toggler-icon{
+    background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%28124, 181, 121, 1.55%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e")
+}
+
+.navbar-light .navbar-toggler{
+    border: 1px solid #7CB579;    
+}
+
+

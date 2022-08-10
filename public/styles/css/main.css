@@ -1,15 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Mulish:wght@300;400;500;600;700;800;900&display=swap');
 
-body{
-    margin: 0;
-    box-sizing: border-box;
-}
-
 h1, h2, h3{
     font-family: 'Cabin Sketch';
 }
 
-h4, h5, h6,p{
+h4, h5, h6, p{
     font-family: 'Mulish', sans-serif;
 }
 
@@ -20,4 +15,17 @@ footer {
     margin-top: 30px;
 }
 
+
+/* hide scrollbar but allow scrolling */
+body {
+    margin: 0;
+    box-sizing: border-box;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+}
+
+body::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
 
