@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { userActions } from '../../redux-toolkit/user';
 import { useNavigate } from 'react-router-dom';
+import './style.css';
 
 const Navigation = () => {
 	const user = useSelector((state) => state.user);
@@ -35,12 +36,12 @@ const Navigation = () => {
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
 						<Nav className='me-auto'>
-							<Link className='home-link' to={'/'}>
+							<Link className='link home-link' to={'/'}>
 								Home
 							</Link>
 
 							{!user.username && (
-								<Link className='login-link' to={'/login'}>
+								<Link className='link login-link' to={'/login'}>
 									Login
 								</Link>
 							)}
