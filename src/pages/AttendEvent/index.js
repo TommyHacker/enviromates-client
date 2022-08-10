@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import { MapStatic } from '../../components'
 import { motion } from 'framer-motion'
 
 export default function AttendEvent() {
   return (
+
     <motion.div
 			initial={{opacity: 0, }}
 			animate={{opacity: 1}}
@@ -13,6 +13,7 @@ export default function AttendEvent() {
 			style={{marginTop:'20vh', height:'100%'}}
 			>
       <Button variant="info">Attend Event</Button>{' '}
+
       <MapStatic/>
     </motion.div>
     
