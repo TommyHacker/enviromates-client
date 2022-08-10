@@ -22,7 +22,8 @@ const Navigation = () => {
 
 	return (
 		<>
-			<Navbar bg='light' variant='light' expand='lg'>
+		<Container fluid>
+			<Navbar className='navbar-main' bg='light' variant='light' expand='lg'>
 				<Container fluid>
 					<Navbar.Brand href='/'>
 						<img
@@ -50,6 +51,7 @@ const Navigation = () => {
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>
+			</Container>
 		</>
 	);
 };

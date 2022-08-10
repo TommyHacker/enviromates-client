@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import locationPointer from '../../assets/images/location-pointer.png'
 import takeAction from '../../assets/images/take-action.png'
 import './style.css';
+import { motion } from 'framer-motion'
 
 
 export default function Home() {
@@ -20,8 +21,17 @@ export default function Home() {
   }
 
 	return (
-		<div>
-			<Container className='d-flex flex-column justify-content-center'>
+		<motion.div
+			initial={{opacity: 0, }}
+			animate={{opacity: 1}}
+			transition={{ delay: 0, duration: 1.5}}
+			exit={{opacity: 0}}
+			
+			>
+			{/* <img className='main-logo' src={logo} alt='logo'></img> */}
+			<Container className='h-100 d-flex flex-column justify-content-center'
+			style={{marginTop:'110px', height:'100%'}}>
+				{/* <Image fluid src={logo} alt="logo"></Image> */}
 				<Row className='mt-5 d-flex justify-content-center'>
 					<h1 className='catch-phrase text-center display-1'>Making change, together!</h1>
 				</Row>
@@ -72,6 +82,6 @@ export default function Home() {
 					</Col>
 				</Row>
 			</Container>
-		</div>
+		</motion.div>
 	);
 }
