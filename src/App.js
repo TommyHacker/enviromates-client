@@ -8,8 +8,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { userActions } from './redux-toolkit/user';
 
-const name = '';
-
 const App = () => {
 	const user = useSelector((state) => state.user);
 	const dispatch = useDispatch();
