@@ -11,7 +11,7 @@ export default function Background() {
         <Container style={{margin: '0', padding: '0', width: '100%'}}>
           <Navigation/>
             <motion.div className='background'
-              initial={{ translateY: 1250}}
+              initial={{ translateY: 1100}}
               animate={{translateY: 10}}
               transition={{ duration: 10.5}}
               
