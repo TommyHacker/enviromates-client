@@ -13,7 +13,7 @@ export default function Login() {
 			animate={{opacity: 1}}
 			transition={{ delay: 1.2, duration: 1.5}}
 			exit={{opacity: 0}}
-			style={{marginTop:'20vh', height:'100%'}}
+			style={{ paddingTop:'20vh', height:'100%'}}
 		>
 			{switchForm ? (
 					<RegisterForm setSwitchForm={setSwitchForm} />

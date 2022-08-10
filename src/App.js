@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import '../public/styles/css/main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { Background } from './components'
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { userActions } from './redux-toolkit/user';
@@ -51,6 +51,7 @@ const App = () => {
 	
 	return (
 		<>
+		<Background/>
 			<AnimatedRoutes/>
 		</>
 	);
