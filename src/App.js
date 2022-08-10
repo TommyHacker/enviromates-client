@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import '../public/styles/css/main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Routes, Route } from 'react-router-dom';
-import * as Pages from './pages';
-import Layout from './Layout';
+
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { userActions } from './redux-toolkit/user';
+import AnimatedRoutes from './components/AnimatedRoutes';
 
 const App = () => {
 	const user = useSelector((state) => state.user);
@@ -48,17 +47,12 @@ const App = () => {
 		}
 	});
 
+	// ANIMATION -------------------------------------------------------------------------
+	
 	return (
-		<Routes>
-			<Route path='/' element={<Layout />}>
-				<Route path='/' element={<Pages.Home />} />
-				<Route path='/login' element={<Pages.Login />} />
-				<Route path='/username' element={<Pages.User />} />
-				<Route path='/create-event' element={<Pages.CreateEvent />} />
-				<Route path='/attend-event' element={<Pages.AttendEvent />} />
-				<Route path='/completed-event' element={<Pages.CompletedEvent />} />
-			</Route>
-		</Routes>
+		<>
+			<AnimatedRoutes/>
+		</>
 	);
 };
 
