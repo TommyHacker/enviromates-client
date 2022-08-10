@@ -5,15 +5,26 @@
   }
   
      
-     .main-logo{
-      position: absolute;
-      margin: 260px 40px ;
-       height: 210px;
-       background-color: rgba(256,256,256, 0.7);
-       border-radius: 25px;
-     }
+.main-logo{
+    position: absolute;
+    margin: 260px 40px ;
+    height: 210px;
+    background-color: rgba(256,256,256, 0.7);
+    border-radius: 25px;
+}
 
 .catch-phrase{
+    color: #fff;
+}
+
+.card{
+    opacity: .9;
+    border: none;
+    border-radius: 1.8rem
+}
+
+.card-title{
+    font-size: 1.5em;
     color: #7CB579;
 }
 
@@ -24,7 +35,7 @@
     border: none;
     outline: none;
     font-size: 1em;
-    color: #2A3439;
+    color: #fff;
     padding: 0.5em 1.5em;
     cursor:pointer;
     user-select:none;
