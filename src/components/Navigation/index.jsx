@@ -1,36 +1,56 @@
-import React from 'react'
-// import { Link } from 'react-router-dom'
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import logo from '../../assets/images/logo.png'
+import logo from '../../assets/images/logo.png';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { userActions } from '../../redux-toolkit/user';
+import { useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
+	const user = useSelector((state) => state.user);
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
-  return (
-    <>
-      <Navbar bg="light" variant="light" expand="lg">
-        <Container fluid>
-          <Navbar.Brand href="/">
-          <img
-              alt="logo"
-              src={logo}
-              width="150"
-              height="75"
-              className="d-inline-block align-top"
-            />{' '}
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link className="home-link" href="/">Home</Nav.Link>
-              <Nav.Link className="login-link" href="/login">Login</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </>
-  )
-}
+	const logOutHandler = () => {
+		dispatch(userActions.setUser(''));
+		window.localStorage.removeItem('accesstoken');
+		navigate('/login');
+	};
+
+	return (
+		<>
+			<Navbar bg='light' variant='light' expand='lg'>
+				<Container fluid>
+					<Navbar.Brand href='/'>
+						<img
+							alt='logo'
+							src={logo}
+							width='150'
+							height='75'
+							className='d-inline-block align-top'
+						/>{' '}
+					</Navbar.Brand>
+					<Navbar.Toggle aria-controls='basic-navbar-nav' />
+					<Navbar.Collapse id='basic-navbar-nav'>
+						<Nav className='me-auto'>
+							<Link className='home-link' to={'/'}>
+								Home
+							</Link>
+
+							{!user.username && (
+								<Link className='login-link' to={'/login'}>
+									Login
+								</Link>
+							)}
+							{user.username && <a onClick={logOutHandler}>Log out</a>}
+						</Nav>
+					</Navbar.Collapse>
+				</Container>
+			</Navbar>
+		</>
+	);
+};
 
 export default Navigation;

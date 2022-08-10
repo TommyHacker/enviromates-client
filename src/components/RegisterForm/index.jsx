@@ -1,97 +1,142 @@
-import React, { useState } from 'react' 
-import { useNavigate } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
-import Container from 'react-bootstrap/Container'
-import Form from 'react-bootstrap/Form'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import { useDispatch, useSelector } from 'react-redux';
+import { userActions } from '../../redux-toolkit/user';
+import axios from 'axios';
 
-export default function RegisterForm() {
+const RegisterForm = ({ setSwitchForm }) => {
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
-    const [state, setState] = useState({
-        username: "",
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: ""
-      })
-    const [submitDetails, setSubmitDetails] = useState('')
-    const navigate = useNavigate()
+	const user = useSelector((state) => state.user);
 
-    function handleInput(e){
-        const value = e.target.value;
-        setState({
-            ...state,
-            [e.target.name]: value
-        });
-    }
+	const [username, setUsername] = useState('');
+	const [firstName, setFirstName] = useState('');
+	const [lastName, setLastName] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 
-    // function handleSubmit(e){
-    //     e.preventDefault()
-    //     setSubmitDetails(username, firstName, lastName, email, password)
-    //     navigate('/:username', {state: {
-    //         username: username,
-    //         firstName: firstName,
-    //         lastName: lastName,
-    //         email: email,
-    //         password: password
-    //     }})
-    // }
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		const formData = new FormData();
+		formData.append('username', username);
+		formData.append('first-name', firstName);
+		formData.append('last-name', lastName);
+		formData.append('email', email);
+		formData.append('password', password);
+		console.log('going to post fetch to login now');
 
-    function handleSubmit(e){
-        e.preventDefault();
-        setSubmitDetails('Submitting...')
-        fetch('http://localhost:5000/api/register', {
-            method: 'POST',
-            body: JSON.stringify(state)
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.success){
-                setSubmitDetails('Successfully registered!')
-                navigate('/login')
-            }
-            else{
-                setSubmitDetails(data.message)
-            }
-        })
-        .catch(err => {
-            setSubmitDetails('Error!')
-        })
-    }
+		axios
+			.post('http://localhost:8000/users/register', formData)
+			.then((res) => {
+				if (res.data.success === 'True') {
+					try {
+						console.log(res);
+						// remove old access token incase there is one
+						window.localStorage.removeItem('accesstoken');
+						// store new fresh accesstoken
+						window.localStorage.setItem('accesstoken', res.data.token);
 
+						// grab the user data
+						const data = res.data.user;
 
-  return (
-    <div>
-        <Container>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="registerUsername">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control type="text" placeholder="Type your username" name="username" value={state.username} onChange={handleInput} />
-                </Form.Group>
+						// update user data
+						dispatch(
+							userActions.setUser({
+								...user,
+								id: data.id,
+								username: data.username,
+								firstName: data.first_name,
+								lastName: data.last_name,
+								email: data.email,
+								eventsAttended: data.events_attended_by_user,
+								eventsHosted: data.events_hosted_by_user,
+								createdAt: data.created_at,
+							})
+						);
+						navigate('/');
+					} catch (err) {
+						console.log(err);
+					}
+				} else {
+					return;
+				}
+			})
+			.catch((err) => console.log(err));
+	};
 
-                <Form.Group className="mb-3" controlId="formFirstName">
-                    <Form.Label>First name</Form.Label>
-                    <Form.Control type="text" placeholder="First name" name="firstName" value={state.firstName} onChange={handleInput} />
-                </Form.Group>
+	return (
+		<div>
+			<Container>
+				<Form onSubmit={handleSubmit}>
+					<Form.Group className='mb-3' controlId='registerUsername'>
+						<Form.Label>Username</Form.Label>
+						<Form.Control
+							type='text'
+							placeholder='Type your username'
+							name='username'
+							value={username}
+							onChange={(e) => setUsername(e.target.value)}
+						/>
+					</Form.Group>
 
-                <Form.Group className="mb-3" controlId="formLastName">
-                    <Form.Label>Last name</Form.Label>
-                    <Form.Control type="text" placeholder="Last name" name="lastName" value={state.lastName} onChange={handleInput} />
-                </Form.Group>
+					<Form.Group className='mb-3' controlId='formFirstName'>
+						<Form.Label>First name</Form.Label>
+						<Form.Control
+							type='text'
+							placeholder='First name'
+							name='firstName'
+							value={firstName}
+							onChange={(e) => setFirstName(e.target.value)}
+						/>
+					</Form.Group>
 
-                <Form.Group className="mb-3" controlId="formEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter your email" name="email" value={state.email} onChange={handleInput} />
-                </Form.Group>
+					<Form.Group className='mb-3' controlId='formLastName'>
+						<Form.Label>Last name</Form.Label>
+						<Form.Control
+							type='text'
+							placeholder='Last name'
+							name='lastName'
+							value={lastName}
+							onChange={(e) => setLastName(e.target.value)}
+						/>
+					</Form.Group>
 
-                <Form.Group className="mb-3" controlId="registerPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Type your password" name="password" value={state.firstName} onChange={handleInput} />
-                </Form.Group>
-            
-                <Button variant="primary" type="submit">Submit</Button>
-            </Form>
-        </Container>
-    </div>
-  )
-}
+					<Form.Group className='mb-3' controlId='formEmail'>
+						<Form.Label>Email address</Form.Label>
+						<Form.Control
+							type='email'
+							placeholder='Enter your email'
+							name='email'
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+						/>
+					</Form.Group>
 
+					<Form.Group className='mb-3' controlId='registerPassword'>
+						<Form.Label>Password</Form.Label>
+						<Form.Control
+							type='password'
+							placeholder='Type your password'
+							name='password'
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+						/>
+					</Form.Group>
+
+					<Button variant='primary' type='submit'>
+						Submit
+					</Button>
+					<p onClick={() => setSwitchForm((prev) => !prev)}>
+						Already have an account? Login here
+					</p>
+				</Form>
+			</Container>
+		</div>
+	);
+};
+
+export default RegisterForm;
