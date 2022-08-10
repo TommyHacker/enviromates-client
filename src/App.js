@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import '../public/styles/css/main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
-import * as Pages from './Pages';
+import * as Pages from './pages';
 import Layout from './Layout';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
