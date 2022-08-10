@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import SubmitButton from '../SubmitButton';
-// import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
@@ -83,9 +82,9 @@ const LoginForm = ({ setSwitchForm }) => {
 						/>
 					</Form.Group>
 
-					<SubmitButton />
-
-					{/* <Button className="submitBtn" variant="primary" type="submit">Submit</Button> */}
+					<Button className='submitBtn' variant='primary' type='submit'>
+						Submit
+					</Button>
 					<p onClick={() => setSwitchForm((prev) => !prev)}>
 						Don't have an account? Register here
 					</p>
