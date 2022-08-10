@@ -5,7 +5,6 @@ import { MapStatic } from '../../components/';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import { ImageUploader } from '../../helpers/cloudinary';
 import axios from 'axios';
 const url = 'https://api.cloudinary.com/v1_1/dgoun8ulz/image/upload';
 
