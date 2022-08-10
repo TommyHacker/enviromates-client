@@ -23,7 +23,7 @@ export default function Home() {
 		<div>
 			<Container className='d-flex flex-column justify-content-center'>
 				<Row className='mt-5 d-flex justify-content-center'>
-					<h1 className='catch-phrase display-1'>Catch Phrase and Animation</h1>
+					<h1 className='catch-phrase text-center display-1'>Making change, together!</h1>
 				</Row>
 				<Row>
 					<Col className='my-5 d-flex justify-content-center align-items-center'>
