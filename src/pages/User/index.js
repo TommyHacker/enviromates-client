@@ -1,55 +1,33 @@
-import Button from 'react-bootstrap/Button';
 import React from 'react'
-// import '../public/styles/css/main.css';
+import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container'
+import { Map } from '../../components'
 
-function CreateEvent() {
+export default function User() {
+  const navigate = useNavigate()
+
   return (
     <>
-      <Button variant="info">Create Event</Button>{' '}
-    
-    </>
-  );
-}
+      <main>
+        {/* <h2>Welcome there, {username}!</h2> */}
+      <br />
+      <br />
+        <Button variant="info" onClick={() => navigate('/create-event')}>Create an Event</Button>
+        <Button variant="info" onClick={() => navigate('/attend-event')}>Attend an Event</Button>
 
-export default CreateEvent();
+      </main>
 
-function  AttendEvent() {
-  return (
-    <>
-      <Button variant="info">Attend Event</Button>{' '}
-    
-    </>
-  );
-}
+      <Container>
+          <Map />
+			</Container>
 
-// export default AttendEvent();
-
-// export default function User() {
-//   return (
-//     <div className="bodycss">
-// 				<header> 
-// 					<div className="top"></div>
-// 					<br />
-// 					<br />
-// 					<h1 className="logo">EnviroMate Logo</h1>
-// 					<br />
-// 					<br />
-// 				</header>
-
-// 				<body>
-//              <h2 className="heading">Welcome there, {name}!</h2>
-// 			 <br />
-// 			 <br />
+			<footer className="footer">
+ 			</footer>
 			
+     </>
+  )
+};
 
-// 				</body>
-			
-// 			<footer className="footer">
 
 
-// 			</footer>
-			
-// 		</div>
-
-//   )
-// };
