@@ -3,8 +3,8 @@
     position: absolute;
     margin:0;
     left: 0;
-     top:0;
-     max-width:100%;
+     top:101px;
+     min-width:100vw;
      z-index: -1;
    }
    
@@ -13,5 +13,4 @@
      left: 0;
      top:0;
      height:200px;
- 
    }

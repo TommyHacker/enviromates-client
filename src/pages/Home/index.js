@@ -6,12 +6,20 @@ import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import logo from '../../assets/images/logo.png';
 import './style.css';
+import { motion } from 'framer-motion'
 
 export default function Home() {
 	return (
-		<div>
+		<motion.div
+			initial={{opacity: 0, }}
+			animate={{opacity: 1}}
+			transition={{ delay: 0, duration: 1.5}}
+			exit={{opacity: 0}}
+			style={{marginTop:'20vh', height:'100%'}}
+			>
 			{/* <img className='main-logo' src={logo} alt='logo'></img> */}
-			<Container className='d-flex flex-column justify-content-center'>
+			<Container className='h-100 d-flex flex-column justify-content-center'
+			style={{marginTop:'110px', height:'100%'}}>
 				{/* <Image fluid src={logo} alt="logo"></Image> */}
 				<Row className='mt-5 d-flex justify-content-center'>
 					<Col></Col>
@@ -44,6 +52,6 @@ export default function Home() {
 					</Col>
 				</Row>
 			</Container>
-		</div>
+		</motion.div>
 	);
 }
