@@ -22,19 +22,24 @@ const LoginForm = ({ setSwitchForm }) => {
 		formData.append('username', username);
 		formData.append('password', password);
 		console.log('going to post fetch to login now');
+		const options = {
+			method: 'POST',
+			mode: 'cors',
+			body: formData,
+		};
 
-		axios
-			.post('http://localhost:8000/users/login', formData)
+		fetch('https://enviromates.herokuapp.com/users/login', options)
+			.then((result) => result.json())
 			.then((res) => {
-				if (res.data.success === 'True') {
+				if (res.success === 'True') {
 					console.log(res);
 					// remove old access token incase there is one
 					window.localStorage.removeItem('accesstoken');
 					// store new fresh accesstoken
-					window.localStorage.setItem('accesstoken', res.data.token);
+					window.localStorage.setItem('accesstoken', res.token);
 
 					// grab the user data
-					const data = res.data.user;
+					const data = res.user;
 
 					// update user data
 					dispatch(

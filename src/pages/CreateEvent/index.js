@@ -5,19 +5,19 @@ import { Map } from '../../components';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import axios from 'axios';
 const url = 'https://api.cloudinary.com/v1_1/dgoun8ulz/image/upload';
+import { useSelector } from 'react-redux';
 
 export default function CreateEvent() {
 	const navigate = useNavigate();
+
+	const currentLocation = useSelector((state) => state.currentLocation);
 
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [difficulty, setDifficulty] = useState('');
 	const [date, setDate] = useState('');
 	const [image, setImage] = useState('');
-	const [longitude, setLongitude] = useState('');
-	const [latitude, setLatitude] = useState('');
 
 	// set image state to uplaoded image on change
 	const imageHandler = (e) => {
@@ -45,10 +45,19 @@ export default function CreateEvent() {
 		formData.append('description', description);
 		formData.append('difficulty', difficulty);
 		formData.append('img-before', imageData.secure_url);
-		formData.append('longitude', '45645');
-		formData.append('latitude', '2343');
+		formData.append('longitude', currentLocation.longitude);
+		formData.append('latitude', currentLocation.latitude);
 
-		axios.post('http://localhost:8000/events', formData);
+		const options = {
+			method: 'POST',
+			mode: 'cors',
+			body: formData,
+		};
+
+		fetch('https://enviromates.herokuapp.com/events/', options)
+			.then((response) => response.json())
+			.then((res) => console.log(res))
+			.catch((err) => console.log(err));
 	};
 
 	return (
