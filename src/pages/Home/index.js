@@ -20,7 +20,6 @@ export default function Home() {
 				<Row>
 					<Col className='my-5 d-flex justify-content-center align-items-center'>
 						<Card style={{ width: '18rem' }}>
-							<Card.Img variant='top' data-src='holder.js/100px180' />
 							<Card.Body>
 								<Card.Title>Location Alert</Card.Title>
 								<Card.Text>
@@ -32,7 +31,6 @@ export default function Home() {
 					</Col>
 					<Col className='d-flex justify-content-center align-items-center'>
 						<Card style={{ width: '18rem' }}>
-							<Card.Img variant='top' src='holder.js/100px180' />
 							<Card.Body>
 								<Card.Title>Location Alert</Card.Title>
 								<Card.Text>
