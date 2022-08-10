@@ -118,8 +118,7 @@ export default function CreateEvent() {
       
       {/* MAP COMPONENT ------------------------- */}
       <Container>
-         
-         <Map/>
+           <Map/>
       </Container>
     </div>
   )
