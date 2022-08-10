@@ -1,0 +1,17 @@
+
+  .background {
+    position: absolute;
+    margin:0;
+    left: 0;
+     top:0;
+     height:1060px;
+     z-index: -1;
+   }
+   
+   .main-logo{
+     position: absolute;
+     left: 0;
+     top:0;
+     height:200px;
+ 
+   }
