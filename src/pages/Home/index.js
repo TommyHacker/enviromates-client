@@ -25,7 +25,7 @@ export default function Home() {
                 <Card.Text>
                   Mark a place to clean here. Be an Enviromate! 
                 </Card.Text>
-                <button className='navBtn'>Get started</button>
+                <button className='navBtn'>Get Started</button>
               </Card.Body>
             </Card>
           </Col>
@@ -37,7 +37,7 @@ export default function Home() {
                 <Card.Text>
                   Ready to take action ? Meet other Enviromates! 
                 </Card.Text>
-                <button className='navBtn'>Create an event</button>
+                <button className='navBtn'>Attend an Event</button>
               </Card.Body>
             </Card>
           </Col>
