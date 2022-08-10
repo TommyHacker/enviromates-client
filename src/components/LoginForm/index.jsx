@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import SubmitButton from '../SubmitButton'
-// import Button from 'react-bootstrap/Button'
+import AnimBtn from '../AnimBtn'
+import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 
@@ -9,6 +9,7 @@ export default function LoginForm() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [submitDetails, setSubmitDetails] = useState('')
+    const [isClicked, setIsClicked] = useState(false);
     const navigate = useNavigate()
 
     function handleInput(e){
@@ -22,6 +23,7 @@ export default function LoginForm() {
     function handleSubmit(e){
         e.preventDefault()
         setSubmitDetails(username, password)
+        setIsClicked(!isClicked)
         navigate('/username', {state: {username: username, password: password}})
         setUsername('')
         setPassword('')
@@ -41,9 +43,10 @@ export default function LoginForm() {
                     <Form.Control type="password" placeholder="Type your password" value={password} onChange={handlePassword} />
                 </Form.Group>
 
-                <SubmitButton />
+                <AnimBtn />
             
-                {/* <Button className="submitBtn" variant="primary" type="submit">Submit</Button> */}
+                <Button className="submitBtn" variant="primary" type="submit"> {isClicked ? "Hide" : "Show"} Submit</Button>
+                {isClicked && <AnimBtn />}
             </Form>
         </Container>
     </>
