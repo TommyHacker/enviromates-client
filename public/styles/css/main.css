@@ -25,11 +25,12 @@ h4, h5, h6,p{
     font-family: 'Mulish', sans-serif;
 }
 
-footer {
-    height: 50px;
-    width: auto;
+.contentbg {
     background-color: #E5CCFF;
-    margin-top: 30px;
+    background: rgba(218, 143, 255, 0.5);
+    margin: 30px;
+    border-radius: 30px;
+    
 }
 
 .usergreet {
@@ -67,3 +68,12 @@ footer {
     text-align: center;
     padding: 30px;
 }
+
+.points {
+    text-align: center;
+    color: white;
+    /* background-color: white;
+    border: 2px white solid;
+    margin: 40px; */
+}
+
