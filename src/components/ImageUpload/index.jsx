@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import ImageUploading from 'react-images-uploading';
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
 
 export default function ImageUpload() {
   const [images, setImages] = useState([]);
@@ -13,7 +16,7 @@ export default function ImageUpload() {
   };
 
   return (
-    <div>
+    <Container>
       <ImageUploading
         multiple
         value={images}
@@ -31,16 +34,19 @@ export default function ImageUpload() {
           dragProps,
         }) => (
           // write your building UI
-          <div className="upload__image-wrapper">
-            <Button
-              style={isDragging ? { color: 'red' } : undefined}
-              onClick={onImageUpload}
-              {...dragProps}
-            >
-              Click or Drop here
-            </Button>
-            &nbsp;
-            <Button onClick={onImageRemoveAll}>Remove all images</Button>
+          <Row className="upload__image-wrapper">
+            <Col>
+              <Button
+                style={isDragging ? { color: '#BED080' } : undefined}
+                onClick={onImageUpload}
+                {...dragProps}
+              >
+                Click or Drop here
+              </Button>
+            </Col>
+            <Col>
+              <Button onClick={onImageRemoveAll}>Remove all images</Button>
+            </Col>
             {imageList.map((image, index) => (
               <div key={index} className="image-item">
                 <Image src={image['data_url']} alt="" width="100" />
@@ -50,9 +56,9 @@ export default function ImageUpload() {
                 </div>
               </div>
             ))}
-          </div>
+          </Row>
         )}
       </ImageUploading>
-    </div>
+    </Container>
   );
 }
