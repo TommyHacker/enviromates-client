@@ -23,10 +23,7 @@ const SignMeUp = ({ eventId }) => {
 			mode: 'cors',
 			body: formData,
 		};
-		// fetch(`https://enviromates.herokuapp.com/events/${eventId}`, options)
-		console.log('sending to sign up ', token, eventId);
-		// fetch(`https://enviromates.herokuapp.com/events/${eventId}`, options)
-		fetch(`http://localhost:8000/events/${eventId}`, options)
+		fetch(`https://enviromates.herokuapp.com/events/${eventId}`, options)
 			.then((res) => res.json())
 			.then((data) => console.log(data));
 	};
