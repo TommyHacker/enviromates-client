@@ -6,6 +6,7 @@
     bottom:0;
      min-width:100vw;
      z-index: -1;
+     overflow-y: hidden;
    }
    
    .main-logo{
@@ -13,4 +14,8 @@
      left: 0;
      top:0;
      height:200px;
+   }
+
+   .navbar-main{
+    width:1000px;
    }

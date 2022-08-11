@@ -9,11 +9,12 @@ const SignMeUp = ({ eventId }) => {
 		formData.append('event-id', eventId);
 
 		const options = {
-			method: 'PUT',
+			method: 'PATCH',
 			mode: 'cors',
 			body: formData,
 		};
-		fetch(`https://enviromates.herokuapp.com/events/${eventId}`, options)
+		// fetch(`https://enviromates.herokuapp.com/events/${eventId}`, options)
+		fetch(`http://localhost:8000/events/${eventId}`, options)
 			.then((res) => res.json())
 			.then((data) => console.log(data));
 	};

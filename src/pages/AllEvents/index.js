@@ -4,6 +4,8 @@ import Row from 'react-bootstrap/Row';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './style.css';
+import { motion } from 'framer-motion';
+
 
 const AllEvents = () => {
 	const navigate = useNavigate();
@@ -16,6 +18,7 @@ const AllEvents = () => {
 
 	return (
 		<>
+
 			<Container className='p-5 d-flex flex-column justify-content-center'>
 				<h1 className='text-center display-1'>Meet other Enviromates!</h1>
 				<h4 className='text-center subtitle'>Join one of our events</h4>
@@ -25,14 +28,20 @@ const AllEvents = () => {
 					events.map((event, index) => {
 						return (
 							<>
-							
-								<div  onClick={() => navigateHandler(event.id)} key={index}>
-									<div className='mb-5'>
-										<h2 className='display-3'>{event.title}</h2>
-										<h5>{event.description}</h5>
-										<img src={event.img_before} style={{ maxHeight: '200px', maxWidth: '300px'}} />
+								<motion.div
+									initial={{opacity: 0, }}
+									animate={{opacity: 1}}
+									transition={{ delay: 0.1, duration: 1.2}}
+									exit={{opacity: 0}}
+								>
+									<div  onClick={() => navigateHandler(event.id)} key={index}>
+										<div className='mb-5'>
+											<h2 className='display-3'>{event.title}</h2>
+											<h5>{event.description}</h5>
+											<img src={event.img_before} style={{ maxHeight: '200px', maxWidth: '300px'}} />
+										</div>
 									</div>
-								</div>
+								</motion.div>
 								
 							</>
 						);
@@ -40,6 +49,7 @@ const AllEvents = () => {
 				}
 
 			</div>
+
 		</>
 	);
 };
