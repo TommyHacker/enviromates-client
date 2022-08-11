@@ -5,3 +5,4 @@ export { default as CreateEvent } from './CreateEvent';
 export { default as AttendEvent } from './AttendEvent';
 export { default as CompletedEvent } from './CompletedEvent';
 export { default as SingleEventPage } from './SingleEventPage';
+export { default as AllEvents } from './AllEvents';

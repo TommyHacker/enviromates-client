@@ -34,7 +34,6 @@ const LoginForm = ({ setSwitchForm }) => {
 
 		fetch('https://enviromates.herokuapp.com/users/login', options)
 			.then((result) => result.json())
-
 			.then((res) => {
 				if (res.success === 'True') {
 					console.log(res);

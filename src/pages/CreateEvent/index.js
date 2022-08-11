@@ -118,14 +118,14 @@ export default function CreateEvent() {
 						<ImageUpload />
 					</Form.Group>
 
-					<Form.Group className='mb-3' controlId='formLocation'>
+					{/* <Form.Group className='mb-3' controlId='formLocation'>
 						<Form.Label>Click to select the location</Form.Label>
 						<Form.Control
 							type='text'
 							placeholder='Enter the location'
 							name='location'
 						/>
-					</Form.Group>
+					</Form.Group> */}
 
 					<Button variant='primary' type='submit'>
 						Submit

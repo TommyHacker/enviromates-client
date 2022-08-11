@@ -3,6 +3,19 @@ import './style.css';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 
 const MapStatic = ({ event, host }) => {
+	const difficultyTranslator = (num) => {
+		let result;
+		switch (num) {
+			case '1':
+				result = 'easy';
+			case '2':
+				result = 'medium';
+			case '3':
+				result = 'hard';
+		}
+		return result;
+	};
+
 	return (
 		// Each Component needs to be declared
 		<div>
@@ -26,7 +39,7 @@ const MapStatic = ({ event, host }) => {
 					<Popup>
 						--ALERT-- <br />
 						Date: {event.start_date.slice(0, 10)} <br />
-						Challenge: {event.difficulty} <br />
+						Challenge: {difficultyTranslator(event.difficulty)} <br />
 						Host: {host} <br />
 						Attendees: 107 <br />
 					</Popup>

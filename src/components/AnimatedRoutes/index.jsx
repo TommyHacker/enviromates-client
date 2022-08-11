@@ -18,6 +18,7 @@ function AnimatedRoutes() {
 					<Route path='/create-event' element={<Pages.CreateEvent />} />
 					<Route path='/attend-event' element={<Pages.AttendEvent />} />
 					<Route path='/completed-event' element={<Pages.CompletedEvent />} />
+					<Route path='/events' element={<Pages.AllEvents />} />
 					<Route path='/event'>
 						<Route path=':id' element={<Pages.SingleEventPage />} />
 					</Route>
