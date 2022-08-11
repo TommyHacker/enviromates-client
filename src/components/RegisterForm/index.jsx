@@ -79,7 +79,7 @@ const RegisterForm = ({ setSwitchForm }) => {
 					}
 				})
 				.catch((err) => console.log(err));
-		}, 3800)		
+		}, 3600)		
 	};
 
 	return (

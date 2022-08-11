@@ -1,5 +1,6 @@
 .map-container {   
-    height: 400px;
+    margin: 0;
+    width: 100vw;
 }
 
 .sidebar {
@@ -14,5 +15,5 @@
     }
 
     .map-box{
-        height: 250px;
+        height: 25px;
     }
