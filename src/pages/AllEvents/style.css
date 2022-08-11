@@ -1,4 +1,6 @@
-.event-title{
-    color: #212121;
-    background-color: none;
+.challenge-info{
+    display:flex;
+    align-self: center;
+    text-align: center;
+    font-size: 1.3rem;
 }

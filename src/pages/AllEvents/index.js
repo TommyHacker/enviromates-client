@@ -3,8 +3,13 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion'
 import Accordion from 'react-bootstrap/Accordion';
+import './style.css'
+import teamwork1 from '../../assets/images/teamwork1.png'
+import teamwork2 from '../../assets/images/teamwork2.png'
+import teamwork3 from '../../assets/images/teamwork3.png'
 
 const AllEvents = () => {
+
 	const navigate = useNavigate();
 
 	const events = useSelector((state) => state.events);
@@ -25,9 +30,10 @@ const AllEvents = () => {
 							transition={{ delay: 0.1, duration: 1.2}}
 							exit={{opacity: 0}}
 							>	
-							<Accordion defaultActiveKey="1" className='m-3 mt-4 event-title'>	
+							<Accordion defaultActiveKey="1" className='m-2 p-0 mt-4 event-title'>	
 									<Accordion.Item eventKey="0">
-											<Accordion.Header><h2>{event.title}<br/>Challenge Level: {event.difficulty} </h2></Accordion.Header>
+											<Accordion.Header><h2>{event.title} <br/><span className='mt-2 challenge-info'> Challenge Level: {event.difficulty} </span></h2>
+											</Accordion.Header>
 												<Accordion.Body>
 												<div onClick={() => navigateHandler(event.id)} key={index}>
 													<h4>{event.description}</h4>
