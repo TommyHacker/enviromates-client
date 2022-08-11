@@ -9,10 +9,10 @@ import Navigation from '../Navigation'
 export default function Background() {
     return (
         <Container style={{margin: '0', padding: '0', width: '100%'}}>
-          <Navigation/>
+          <Navigation style={{margin: '0', padding: '0', width: '100%'}}/>
             <motion.div className='background'
-              initial={{ translateY: 1100}}
-              animate={{translateY: 10}}
+              initial={{ translateY: 0}}
+              animate={{translateY:250}}
               transition={{ duration: 10.5}}
               
             >

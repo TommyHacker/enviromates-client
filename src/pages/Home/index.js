@@ -29,8 +29,8 @@ export default function Home() {
 			
 			>
 			{/* <img className='main-logo' src={logo} alt='logo'></img> */}
-			<Container className='h-100 d-flex flex-column justify-content-center'
-			style={{marginTop:'110px', height:'100%'}}>
+			<Container className='h-60 d-flex flex-column justify-content-center'>
+			
 				{/* <Image fluid src={logo} alt="logo"></Image> */}
 				<Row className='mt-5 d-flex justify-content-center'>
 					<h1 className='catch-phrase text-center display-1'>Making change, together!</h1>
