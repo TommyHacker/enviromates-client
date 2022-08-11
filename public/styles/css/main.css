@@ -22,19 +22,13 @@ h4, h5, h6, p{
 }
 
 .contentbg {
-    background-color: #E5CCFF;
-    background: rgba(218, 143, 255, 0.5);
+    /* background-color: #E5CCFF; */
+    background: rgb(190, 208, 128, .8);
     margin: 30px;
     border-radius: 30px;
     
 }
 
-.usergreet {
-    margin-top: 50px;
-    font-size: 60px;
-    text-align: center;
-    color: white;
-}
 #root{
     margin: 0;
     padding: 0;
@@ -52,14 +46,8 @@ body {
     overflow-y: scroll; 
 }
 
-.usergreet2 {
-    text-align: center;
-    color: white;
-}
-
-
 .streak {
-    color: #E5CCFF;
+    color: #CA9AFE;
 }
 
 .streak-img {
@@ -67,26 +55,11 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    /* animation: streak;
-    animation-duration: 5s; */
     animation-name: spin;
-  animation-duration: 1s;
-  animation-iteration-count: 1;
-  animation-timing-function: linear; 
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear; 
   
-}
-
-.content {
-    text-align: center;
-    padding: 30px;
-}
-
-.points {
-    text-align: center;
-    color: white;
-    /* background-color: white;
-    border: 2px white solid;
-    margin: 40px; */
 }
 
 body::-webkit-scrollbar {

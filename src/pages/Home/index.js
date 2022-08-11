@@ -17,7 +17,7 @@ export default function Home() {
   function timer(){
     setTimeout(() => {
       navigate('/login')
-      }, 1500)
+      }, 1100)
   }
 
 	return (
