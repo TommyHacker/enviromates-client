@@ -23,7 +23,7 @@
     position: relative;
     width: 60%;
     margin: 0 auto;
-    padding: 2em;
+    padding: 1.8em;
 }
 
 .submitBtn{
@@ -34,13 +34,8 @@
     padding: 0.7em 1em;
     color: #fff;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.1rem;
     outline: 0;
-}
-
-.submitBtn:hover{
-    background: #E5CCFF;
-    color: #2A3439;
 }
 
 .submitBtn:active{

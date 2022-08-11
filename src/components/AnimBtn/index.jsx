@@ -18,7 +18,7 @@ export default function AnimBtn() {
         return () => lottie.stop();        
     }, []);
 
-    return <div style={{ height: 250, width: 300 }} ref={anime}></div>;
+    return <div style={{ height: 150, width: 200 }} ref={anime}></div>;
     
     
     
