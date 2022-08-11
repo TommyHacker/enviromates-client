@@ -56,6 +56,12 @@ const SingleEventPage = () => {
 	}, [host]);
 	return (
 		<>
+		<motion.div
+			initial={{opacity: 0, }}
+			animate={{opacity: 1}}
+			transition={{ delay: 0.1, duration: 1.2}}
+			exit={{opacity: 0}}
+			style={{ margin: 'auto', height:'100%'}}>
 			<Container className='d-flex flex-column justify-content-center'>
 				{event ? (
 					<>
@@ -76,6 +82,7 @@ const SingleEventPage = () => {
 					'loading'
 				)}
 			</Container>
+			</motion.div>
 		</>
 	);
 };

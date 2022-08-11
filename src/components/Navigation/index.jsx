@@ -23,7 +23,7 @@ const Navigation = () => {
 	return (
 		<>
 			<Container fluid className='nav-container' style={{margin: '0', padding: '0', width: '100%'}}>
-				<Navbar className='navbar-main' bg='light' variant='light' expand='lg' style={{margin: '0', padding: '0', width: '100%'}}>
+				<Navbar className='navbar-main' bg='light' variant='light' expand='lg' style={{margin: '0', padding: '0', width: '100vw'}}>
 					<Container fluid >
 						<Navbar.Brand href='/'>
 							<img
