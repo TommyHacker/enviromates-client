@@ -46,11 +46,11 @@ const Navigation = () => {
 										Login
 									</Link>
 								)}
-								{user.username && <a onClick={logOutHandler}>Log out</a>}
+								{user.username && <a className='link' onClick={logOutHandler}>Log out</a>}
 								{user.username && (
-									<a onClick={() => navigate('/create-event')}>create event</a>
+									<a className='link' onClick={() => navigate('/create-event')}>Create an Event</a>
 								)}
-								<Link to={'/events'}>All Events</Link>
+								<Link className='link events-link' to={'/events'}>All Events</Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
