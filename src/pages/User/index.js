@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import { Map } from '../../components';
 import trophy from '../../assets/images/trophy.png'
+import { motion } from 'framer-motion'
 
 export default function User() {
 	const navigate = useNavigate();
@@ -27,6 +28,15 @@ export default function User() {
 			</div>
 			
 			<Container className="content">
+		<motion.div
+			initial={{opacity: 0, }}
+			animate={{opacity: 1}}
+			transition={{ delay: 0.1, duration: 1.2}}
+			exit={{opacity: 0}}
+			style={{ margin: 'auto', height:'100%'}}
+			>
+				</motion.div>
+			
 				{/* <h2>Welcome there, {username}!</h2> */}
 				<br />
 				<br />
@@ -46,6 +56,8 @@ export default function User() {
 			</Container> */}
 
 			</div>
+			
+		
 		</>
 	);
 }

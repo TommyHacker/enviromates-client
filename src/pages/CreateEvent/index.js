@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ImageUpload from '../../components/ImageUpload';
-import { Map } from '../../components/';
+import { Map } from '../../components';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 const url = 'https://api.cloudinary.com/v1_1/dgoun8ulz/image/upload';
+import { useSelector } from 'react-redux';
 
 export default function CreateEvent() {
+	const [isLoading, setIsLoading] = useState(false);
 	const navigate = useNavigate();
+
+	const currentLocation = useSelector((state) => state.currentLocation);
 
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [difficulty, setDifficulty] = useState('');
 	const [date, setDate] = useState('');
 	const [image, setImage] = useState('');
-	const [longitude, setLongitude] = useState('');
-	const [latitude, setLatitude] = useState('');
 
 	// set image state to uplaoded image on change
 	const imageHandler = (e) => {
@@ -26,6 +30,7 @@ export default function CreateEvent() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setIsLoading(true);
 		// prepare the image for cloudinary
 		const formData = new FormData();
 		formData.append('file', image);
@@ -45,19 +50,42 @@ export default function CreateEvent() {
 		formData.append('description', description);
 		formData.append('difficulty', difficulty);
 		formData.append('img-before', imageData.secure_url);
-		formData.append('longitude', '45645');
-		formData.append('latitude', '2343');
+		formData.append('longitude', currentLocation.longitude);
+		formData.append('latitude', currentLocation.latitude);
 
-		axios.post('http://localhost:8000/events', formData);
+		const options = {
+			method: 'POST',
+			mode: 'cors',
+			body: formData,
+		};
+
+		setTimeout(() => {	
+
+			fetch('https://enviromates.herokuapp.com/events/', options)
+				.then((response) => response.json())
+				.then((res) => console.log(res))
+				.catch((err) => console.log(err));
+		}, 3800)
 	};
 
 	return (
-		<div>
-			<Container>
-				<Form onSubmit={handleSubmit}>
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ delay: 0, duration: 1.5 }}
+			exit={{ opacity: 0 }}
+			style={{ margin: 'auto', height:'100%'}}>
+			
+			<Container className='p-5 d-flex flex-column justify-content-center'>
+				<Row className='p-3 d-flex flex-column justify-content-center'>
+					<h1 className='display-2 text-center'>Sign in</h1>
+				</Row>
+				<Form className='form p-4' onSubmit={handleSubmit}>
+
 					<Form.Group className='mb-3' controlId='formEventName'>
-						<Form.Label>Name of the event</Form.Label>
+						<Form.Label><h3>Name of the event</h3></Form.Label>
 						<Form.Control
+							className='input mb-3 p-2'
 							type='text'
 							placeholder='Last name'
 							name='eventName'
@@ -67,9 +95,10 @@ export default function CreateEvent() {
 					</Form.Group>
 
 					<Form.Group className='mb-3' controlId='formDescription'>
-						<Form.Label>Description</Form.Label>
+						<Form.Label><h3>Description</h3></Form.Label>
 						<Form.Control
 							as='textarea'
+							className='input mb-3 p-2'
 							placeholder='Describe the event'
 							name='description'
 							value={description}
@@ -87,8 +116,8 @@ export default function CreateEvent() {
 						<option value='3'>hard</option>
 					</Form.Select>
 
-					<Form.Group controlId='formEventDate'>
-						<Form.Label>Select Event Start Date</Form.Label>
+					<Form.Group className='mb-3' controlId='formEventDate'>
+						<Form.Label><h3>Select a Start Date</h3></Form.Label>
 						<Form.Control
 							type='date'
 							name='eventDate'
@@ -102,18 +131,24 @@ export default function CreateEvent() {
 						<ImageUpload />
 					</Form.Group>
 
-					<Form.Group className='mb-3' controlId='formLocation'>
+					{/* <Form.Group className='mb-3' controlId='formLocation'>
 						<Form.Label>Click to select the location</Form.Label>
 						<Form.Control
 							type='text'
 							placeholder='Enter the location'
 							name='location'
 						/>
-					</Form.Group>
+					</Form.Group> */}
 
-					<Button variant='primary' type='submit'>
-						Submit
-					</Button>
+					<Row className='p-3 d-flex justify-content-center align-items-center'>
+						{!isLoading ? (
+							<button className='submitBtn' variant='primary' type='submit'>
+								Submit
+							</button>
+						) : (
+							<AnimBtn />
+						)}
+					</Row>
 				</Form>
 			</Container>
 
@@ -121,6 +156,6 @@ export default function CreateEvent() {
 			<Container>
 				<Map />
 			</Container>
-		</div>
+		</motion.div>
 	);
 }
