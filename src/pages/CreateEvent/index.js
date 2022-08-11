@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
+import AnimBtn from '../../components/AnimBtn';
 import { motion } from 'framer-motion';
 const url = 'https://api.cloudinary.com/v1_1/dgoun8ulz/image/upload';
 import { useSelector } from 'react-redux';
@@ -87,7 +88,7 @@ export default function CreateEvent() {
 						<Form.Control
 							className='input mb-3 p-2'
 							type='text'
-							placeholder='Last name'
+							placeholder='Event name'
 							name='eventName'
 							value={title}
 							onChange={(e) => setTitle(e.target.value)}

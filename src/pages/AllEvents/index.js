@@ -3,8 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import './style.css';
 import { motion } from 'framer-motion';
+import './style.css';
 
 
 const AllEvents = () => {
