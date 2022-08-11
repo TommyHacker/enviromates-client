@@ -17,16 +17,20 @@ const SingleEventPage = () => {
 	const [isHost, setIsHost] = useState(false);
 
 	const capitalize = (e) => {
-		let word = e.split('');
-		let arr = [];
-		for (let i = 0; i < word.length; i++) {
-			if (i == 0) {
-				arr.push(word[i].toUpperCase());
-			} else {
-				arr.push(word[i]);
+		try {
+			let word = e.split('');
+			let arr = [];
+			for (let i = 0; i < word.length; i++) {
+				if (i == 0) {
+					arr.push(word[i].toUpperCase());
+				} else {
+					arr.push(word[i]);
+				}
 			}
+			return arr.join('');
+		} catch (err) {
+			return e;
 		}
-		return arr.join('');
 	};
 
 	const getHostName = () => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ImageUpload from '../../components/ImageUpload';
 import { Map } from '../../components';
@@ -17,6 +17,7 @@ export default function CreateEvent() {
 	const navigate = useNavigate();
 
 	const currentLocation = useSelector((state) => state.currentLocation);
+	const user = useSelector((state) => state.user);
 
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
@@ -75,6 +76,12 @@ export default function CreateEvent() {
 				.catch((err) => console.log(err));
 		}, 3800);
 	};
+
+	useEffect(() => {
+		if (!user.username || user.username == '') {
+			navigate('/login');
+		}
+	}, []);
 
 	return (
 		<motion.div

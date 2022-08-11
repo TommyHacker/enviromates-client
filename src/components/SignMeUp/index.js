@@ -1,8 +1,17 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const SignMeUp = ({ eventId }) => {
+	const navigate = useNavigate();
+	const user = useSelector((state) => state.user);
+
 	const signUpHandler = () => {
+		if (!user.username || user.username == '') {
+			navigate('/login');
+		}
+
 		const formData = new FormData();
 		const token = window.localStorage.getItem('accesstoken');
 		formData.append('accesstoken', token);

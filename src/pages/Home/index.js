@@ -18,7 +18,7 @@ export default function Home() {
 	function timer() {
 		setTimeout(() => {
 			// if logged go to create event page
-			if (user.username != '') {
+			if (user.username && user.username != '') {
 				navigate('/create-event');
 			} else {
 				// if not logged in, navigate to login
