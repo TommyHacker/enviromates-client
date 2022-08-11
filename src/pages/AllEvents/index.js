@@ -43,14 +43,14 @@ const AllEvents = () => {
 											<Accordion.Header><h2>{event.title} <br/><span className='mt-2 challenge-info'> Challenge Level: {event.difficulty} </span></h2>
 											</Accordion.Header>
 												<Accordion.Body>
-													<div  onClick={() => navigateHandler(event.id)} key={index}>
-														<div className='mb-5'>
-															<h2 className='display-3'>{event.title}</h2>
-															<h5>{event.description}</h5>
-															<img src={event.img_before} style={{ maxHeight: '200px', maxWidth: '300px'}} />
-														</div>
+													<div className='mb-5'>
+														<h2 className='display-2'>{event.title}</h2>
+															<div  onClick={() => navigateHandler(event.id)} key={index}>
+																<h5>{event.description}</h5>
+																<img src={event.img_before} style={{ maxHeight: '200px', maxWidth: '300px', margin:'auto'}} />
+															</div>
 													</div>
-										</Accordion.Body>
+												</Accordion.Body>
 									</Accordion.Item>
 							</Accordion>
 						</motion.div>	
