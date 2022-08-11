@@ -22,9 +22,9 @@ const Navigation = () => {
 
 	return (
 		<>
-			<Container fluid>
-				<Navbar className='navbar-main' bg='light' variant='light' expand='lg'>
-					<Container fluid>
+			<Container fluid className='nav-container' style={{margin: '0', padding: '0', width: '100%'}}>
+				<Navbar className='navbar-main' bg='light' variant='light' expand='lg' style={{margin: '0', padding: '0', width: '100vw'}}>
+					<Container fluid >
 						<Navbar.Brand href='/'>
 							<img
 								alt='logo'
@@ -46,11 +46,11 @@ const Navigation = () => {
 										Login
 									</Link>
 								)}
-								{user.username && <a onClick={logOutHandler}>Log out</a>}
+								{user.username && <a className='link' onClick={logOutHandler}>Log out</a>}
 								{user.username && (
-									<a onClick={() => navigate('/create-event')}>create event</a>
+									<a className='link' onClick={() => navigate('/create-event')}>Create an Event</a>
 								)}
-								<Link to={'/events'}>All Events</Link>
+								<Link className='link events-link' to={'/events'}>All Events</Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>

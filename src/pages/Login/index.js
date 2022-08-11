@@ -11,9 +11,9 @@ export default function Login() {
 		<motion.div
 			initial={{opacity: 0, }}
 			animate={{opacity: 1}}
-			transition={{ delay: 1.2, duration: 1.5}}
+			transition={{ delay: 0.1, duration: 1.2}}
 			exit={{opacity: 0}}
-			style={{ paddingTop:'20vh', height:'100%'}}
+			style={{ margin: 'auto', height:'100%'}}
 		>
 			{switchForm ? (
 					<RegisterForm setSwitchForm={setSwitchForm} />
