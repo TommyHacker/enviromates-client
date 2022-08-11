@@ -65,10 +65,8 @@ export default function CreateEvent() {
 			fetch('https://enviromates.herokuapp.com/events/', options)
 				.then((response) => response.json())
 				.then((res) => {
-					console.log('response from POST event', res);
 					if (res.success === 'True') {
-						console.log('SUCCESS!!!', res.data.id);
-						// return navigate(`/events/${res.data.id}`);
+						return navigate(`/events/${res.data.id}`);
 					} else {
 						navigate('/events');
 					}

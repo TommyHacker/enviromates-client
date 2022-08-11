@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import ImageUploading from 'react-images-uploading';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -7,58 +7,56 @@ import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 
 export default function ImageUpload() {
-  const [images, setImages] = useState([]);
-  const maxNumber = 2;
+	const [images, setImages] = useState([]);
+	const maxNumber = 2;
 
-  function handleImages(imageList, addUpdateIndex){
-    console.log(imageList, addUpdateIndex);
-    setImages(imageList);
-  };
+	function handleImages(imageList, addUpdateIndex) {
+		// console.log(imageList, addUpdateIndex);
+		setImages(imageList);
+	}
 
-  return (
-    <Container>
-      <ImageUploading
-        multiple
-        value={images}
-        onChange={handleImages}
-        maxNumber={maxNumber}
-        dataURLKey="data_url"
-      >
-        {({
-          imageList,
-          onImageUpload,
-          onImageRemoveAll,
-          onImageUpdate,
-          onImageRemove,
-          isDragging,
-          dragProps,
-        }) => (
-          // write your building UI
-          <Row className="upload__image-wrapper">
-            <Col>
-              <Button
-                style={isDragging ? { color: '#BED080' } : undefined}
-                onClick={onImageUpload}
-                {...dragProps}
-              >
-                Click or Drop here
-              </Button>
-            </Col>
-            <Col>
-              <Button onClick={onImageRemoveAll}>Remove all images</Button>
-            </Col>
-            {imageList.map((image, index) => (
-              <div key={index} className="image-item">
-                <Image src={image['data_url']} alt="" width="100" />
-                <div className="image-item__btn-wrapper">
-                  <Button onClick={() => onImageUpdate(index)}>Update</Button>
-                  <Button onClick={() => onImageRemove(index)}>Remove</Button>
-                </div>
-              </div>
-            ))}
-          </Row>
-        )}
-      </ImageUploading>
-    </Container>
-  );
+	return (
+		<Container>
+			<ImageUploading
+				multiple
+				value={images}
+				onChange={handleImages}
+				maxNumber={maxNumber}
+				dataURLKey='data_url'>
+				{({
+					imageList,
+					onImageUpload,
+					onImageRemoveAll,
+					onImageUpdate,
+					onImageRemove,
+					isDragging,
+					dragProps,
+				}) => (
+					// write your building UI
+					<Row className='upload__image-wrapper'>
+						<Col>
+							<Button
+								style={isDragging ? { color: '#BED080' } : undefined}
+								onClick={onImageUpload}
+								{...dragProps}>
+								Click or Drop here
+							</Button>
+						</Col>
+						<Col>
+							<Button onClick={onImageRemoveAll}>Remove all images</Button>
+						</Col>
+						{imageList.map((image, index) => (
+							<div key={index} className='image-item'>
+								<Image src={image['data_url']} alt='' width='100' />
+								<div className='image-item__btn-wrapper'>
+									<Button onClick={() => onImageUpdate(index)}>Update</Button>
+									<Button onClick={() => onImageRemove(index)}>Remove</Button>
+								</div>
+							</div>
+						))}
+					</Row>
+				)}
+			</ImageUploading>
+		</Container>
+	);
 }

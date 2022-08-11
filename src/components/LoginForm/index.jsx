@@ -25,7 +25,6 @@ const LoginForm = ({ setSwitchForm }) => {
 		const formData = new FormData();
 		formData.append('username', username);
 		formData.append('password', password);
-		console.log('going to post fetch to login now');
 		const options = {
 			method: 'POST',
 			mode: 'cors',
