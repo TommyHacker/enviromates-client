@@ -1,3 +1,5 @@
+/* STYLESHEET FOR ALL THE FORMS*/
+
 h1, h3{
     color: white;
 }
@@ -12,23 +14,24 @@ h1, h3{
 
 .input{
     font-size: 1rem;
+    font-family: 'Mulish', sans-serif;
     border-radius: 1.8rem;
-    background-color: #fff;
-    opacity: .5;
-    color: #fff;
+    background-color: rgb(355, 355, 355, .5);
+    color: #2A3439;
 }
 
 .input::placeholder{
-    color: #fff;
+    color: #2A3439;
     opacity: 1;
+    padding-left: .5rem;
 }
 
 .input:focus{
     outline: none;
     border: none;
     box-shadow: none;
-    background-color: #fff;
-    opacity: .7;
+    background-color: rgb(355, 355, 355, .7);
+    color: #2A3439;
 }
 
 .redirect{

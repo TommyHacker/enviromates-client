@@ -35,8 +35,9 @@ export default function ImageUpload() {
         }) => (
           // write your building UI
           <Row className="upload__image-wrapper">
-            <Col>
+            <Col className='mb-2'>
               <Button
+                className='navBtn'
                 style={isDragging ? { color: '#BED080' } : undefined}
                 onClick={onImageUpload}
                 {...dragProps}
@@ -44,15 +45,15 @@ export default function ImageUpload() {
                 Click or Drop here
               </Button>
             </Col>
-            <Col>
-              <Button onClick={onImageRemoveAll}>Remove all images</Button>
+            <Col>                
+              <Button className='navBtn' onClick={onImageRemoveAll} >Remove all images</Button>
             </Col>
             {imageList.map((image, index) => (
               <div key={index} className="image-item">
                 <Image src={image['data_url']} alt="" width="100" />
                 <div className="image-item__btn-wrapper">
-                  <Button onClick={() => onImageUpdate(index)}>Update</Button>
-                  <Button onClick={() => onImageRemove(index)}>Remove</Button>
+                  <Button className='navBtn' onClick={() => onImageUpdate(index)}>Update</Button>
+                  <Button className='navBtn' onClick={() => onImageRemove(index)}>Remove</Button>
                 </div>
               </div>
             ))}
