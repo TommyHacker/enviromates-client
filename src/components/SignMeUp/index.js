@@ -30,7 +30,9 @@ const SignMeUp = ({ eventId }) => {
 
 	return (
 		<>
-			<Button onClick={signUpHandler}>Sign Me Up</Button>
+			<Button className='navBtn' onClick={signUpHandler}>
+				Sign Me Up
+			</Button>
 		</>
 	);
 };

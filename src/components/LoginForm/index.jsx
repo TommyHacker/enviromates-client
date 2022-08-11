@@ -65,7 +65,11 @@ const LoginForm = ({ setSwitchForm }) => {
 					}
 				})
 				.catch((err) => console.log(err));
+<<<<<<< HEAD
 		}, 3800);
+=======
+		}, 3600)
+>>>>>>> 637a9363aaa5927d43e122957580e54e6fc1a785
 	};
 
 	return (

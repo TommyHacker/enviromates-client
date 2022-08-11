@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
+import AnimBtn from '../../components/AnimBtn';
 import { motion } from 'framer-motion';
 const url = 'https://api.cloudinary.com/v1_1/dgoun8ulz/image/upload';
 import { useSelector } from 'react-redux';
@@ -72,7 +73,7 @@ export default function CreateEvent() {
 					}
 				})
 				.catch((err) => console.log(err));
-		}, 3800);
+		}, 3600);
 	};
 
 	useEffect(() => {
@@ -90,7 +91,7 @@ export default function CreateEvent() {
 			style={{ margin: 'auto', height: '100%' }}>
 			<Container className='p-5 d-flex flex-column justify-content-center'>
 				<Row className='p-3 d-flex flex-column justify-content-center'>
-					<h1 className='display-2 text-center'>Sign in</h1>
+					<h1 className='display-2 text-center'>Create your own events</h1>
 				</Row>
 				<Form className='form p-4' onSubmit={handleSubmit}>
 					<Form.Group className='mb-3' controlId='formEventName'>
@@ -100,7 +101,7 @@ export default function CreateEvent() {
 						<Form.Control
 							className='input mb-3 p-2'
 							type='text'
-							placeholder='Last name'
+							placeholder='Event name'
 							name='eventName'
 							value={title}
 							onChange={(e) => setTitle(e.target.value)}
@@ -122,7 +123,7 @@ export default function CreateEvent() {
 					</Form.Group>
 
 					<Form.Select
-						className='mb-3'
+						className='mb-3 input'
 						aria-label='Difficulty'
 						onChange={(e) => setDifficulty(e.target.value)}>
 						<option>Difficulty</option>
@@ -131,31 +132,25 @@ export default function CreateEvent() {
 						<option value='3'>Hard</option>
 					</Form.Select>
 
-					<Form.Group className='mb-3' controlId='formEventDate'>
+					<Form.Group controlId='formImageUpload' onChange={imageHandler}>
+						<Form.Label>
+							<h3>Add Images</h3>
+						</Form.Label>
+						<ImageUpload />
+					</Form.Group>
+
+					<Form.Group className='my-3' controlId='formEventDate'>
 						<Form.Label>
 							<h3>Select a Start Date</h3>
 						</Form.Label>
 						<Form.Control
+							className='input'
 							type='date'
 							name='eventDate'
 							value={date}
 							onChange={(e) => setDate(e.target.value)}
 						/>
 					</Form.Group>
-
-					{/* NEED SOME MARGIN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
-					<Form.Group controlId='formImageUpload' onChange={imageHandler}>
-						<ImageUpload />
-					</Form.Group>
-
-					{/* <Form.Group className='mb-3' controlId='formLocation'>
-						<Form.Label>Click to select the location</Form.Label>
-						<Form.Control
-							type='text'
-							placeholder='Enter the location'
-							name='location'
-						/>
-					</Form.Group> */}
 
 					<Row className='p-3 d-flex justify-content-center align-items-center'>
 						{!isLoading ? (
@@ -170,9 +165,9 @@ export default function CreateEvent() {
 			</Container>
 
 			{/* MAP COMPONENT ------------------------- */}
-			<Container>
+			<div className='border'>
 				<Map />
-			</Container>
+			</div>
 		</motion.div>
 	);
 }

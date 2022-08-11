@@ -77,6 +77,11 @@ const SingleEventPage = () => {
 				transition={{ delay: 0.1, duration: 1.2 }}
 				exit={{ opacity: 0 }}
 				style={{ margin: 'auto', height: '100%' }}>
+
+				<Container>
+					
+				</Container>	
+
 				<Container className='d-flex flex-column justify-content-center'>
 					{event ? (
 						<>
