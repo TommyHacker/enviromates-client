@@ -2,16 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ImageUpload from '../../components/ImageUpload';
 import { Map } from '../../components';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import axios from 'axios';
 import AnimBtn from '../../components/AnimBtn';
 import { motion } from 'framer-motion';
 const url = 'https://api.cloudinary.com/v1_1/dgoun8ulz/image/upload';
 import { useSelector } from 'react-redux';
-import { AnimBtn } from '../../components';
 
 export default function CreateEvent() {
 	const [isLoading, setIsLoading] = useState(false);
