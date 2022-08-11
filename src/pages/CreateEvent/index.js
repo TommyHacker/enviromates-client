@@ -74,7 +74,7 @@ export default function CreateEvent() {
 			animate={{ opacity: 1 }}
 			transition={{ delay: 0, duration: 1.5 }}
 			exit={{ opacity: 0 }}
-			style={{ margin: 'auto', height:'100%'}}>
+			>
 			
 			<Container className='p-5 d-flex flex-column justify-content-center'>
 				<Row className='p-3 d-flex flex-column justify-content-center'>
@@ -153,9 +153,9 @@ export default function CreateEvent() {
 			</Container>
 
 			{/* MAP COMPONENT ------------------------- */}
-			<Container>
-				<Map />
-			</Container>
+			
+				<Map style={{width: '100%'}}/>
+			
 		</motion.div>
 	);
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion'
+import Accordion from 'react-bootstrap/Accordion';
 
 const AllEvents = () => {
 	const navigate = useNavigate();
@@ -14,6 +15,7 @@ const AllEvents = () => {
 
 	return (
 		<>
+		<h1 style={{margin:'25px', fontSize:'4rem', }}> Upcoming Events</h1>
 			{events &&
 				events.map((event, index) => {
 					return (
@@ -22,14 +24,18 @@ const AllEvents = () => {
 							animate={{opacity: 1}}
 							transition={{ delay: 0.1, duration: 1.2}}
 							exit={{opacity: 0}}
-							>
-								<div onClick={() => navigateHandler(event.id)} key={index}>
-									<div>
-										<h2>{event.title}</h2>
-										<h4>{event.description}</h4>
-										<img src={event.img_before} style={{ height: '200px' }} />
-									</div>
-								</div>
+							>	
+							<Accordion defaultActiveKey="1" className='m-3 mt-4 event-title'>	
+									<Accordion.Item eventKey="0">
+											<Accordion.Header><h2>{event.title}<br/>Challenge Level: {event.difficulty} </h2></Accordion.Header>
+												<Accordion.Body>
+												<div onClick={() => navigateHandler(event.id)} key={index}>
+													<h4>{event.description}</h4>
+													<img src={event.img_before} style={{ height: '200px' }} />
+												</div>	
+											</Accordion.Body>
+									</Accordion.Item>
+							</Accordion>
 						</motion.div>	
 					);
 				})}
