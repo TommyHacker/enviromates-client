@@ -16,16 +16,13 @@ const SingleEventPage = () => {
 	const [host, setHost] = useState('');
 	const [isHost, setIsHost] = useState(false);
 
-	const getHostName = (author_id) => {
+	const getHostName = () => {
 		const options = {
 			method: 'GET',
 			mode: 'cors',
 		};
 
-		fetch(
-			`https://enviromates.herokuapp.com/users/author/${author_id}`,
-			options
-		)
+		fetch(`https://enviromates.herokuapp.com/users/author/${id}`, options)
 			.then((res) => res.json())
 			.then((data) => setHost(data.author));
 	};
@@ -42,7 +39,7 @@ const SingleEventPage = () => {
 
 	useEffect(() => {
 		try {
-			getHostName(event.author_id);
+			getHostName(id);
 		} catch (err) {
 			console.log(err);
 		}
@@ -66,7 +63,7 @@ const SingleEventPage = () => {
 				<Container className='d-flex flex-column justify-content-center'>
 					{event ? (
 						<>
-							<SignMeUp eventId={event.id} />
+							<SignMeUp eventId={id} />
 							{isHost && <CompleteEvent event={event} />}
 							<h1>{event.title}</h1>
 							<h2>{event.description}</h2>
