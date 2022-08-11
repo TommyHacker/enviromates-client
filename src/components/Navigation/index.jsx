@@ -22,18 +22,26 @@ const Navigation = () => {
 
 	return (
 		<>
-			<Container fluid className='nav-container' style={{margin: '0', padding: '0', width: '100%'}}>
-				<Navbar className='navbar-main' bg='light' variant='light' expand='lg' style={{margin: '0', padding: '0', width: '100vw'}}>
-					<Container fluid >
-						<Navbar.Brand href='/'>
+			<Container
+				fluid
+				className='nav-container'
+				style={{ margin: '0', padding: '0', width: '100%' }}>
+				<Navbar
+					className='navbar-main'
+					bg='light'
+					variant='light'
+					expand='lg'
+					style={{ margin: '0', padding: '0', width: '100vw' }}>
+					<Container fluid>
+						<Link to={'/'}>
 							<img
 								alt='logo'
 								src={logo}
 								width='150'
 								height='75'
 								className='d-inline-block align-top'
-							/>{' '}
-						</Navbar.Brand>
+							/>
+						</Link>
 						<Navbar.Toggle aria-controls='basic-navbar-nav' />
 						<Navbar.Collapse id='basic-navbar-nav'>
 							<Nav className='me-auto mb-3'>
@@ -46,11 +54,19 @@ const Navigation = () => {
 										Login
 									</Link>
 								)}
-								{user.username && <a className='link' onClick={logOutHandler}>Log out</a>}
 								{user.username && (
-									<a className='link' onClick={() => navigate('/create-event')}>Create an Event</a>
+									<a className='link' onClick={logOutHandler}>
+										Log out
+									</a>
 								)}
-								<Link className='link events-link' to={'/events'}>All Events</Link>
+								{user.username && (
+									<a className='link' onClick={() => navigate('/create-event')}>
+										Create an Event
+									</a>
+								)}
+								<Link className='link events-link' to={'/events'}>
+									All Events
+								</Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
