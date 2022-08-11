@@ -46,7 +46,7 @@ const Navigation = () => {
 							/>
 						</Link>
 						<Navbar.Toggle
-							onclick={() => setExpanded(expanded ? false : 'expanded')}
+							onClick={() => setExpanded(expanded ? false : 'expanded')}
 							aria-controls='basic-navbar-nav'
 						/>
 						<Navbar.Collapse id='basic-navbar-nav'>
@@ -72,7 +72,12 @@ const Navigation = () => {
 									</a>
 								)}
 								{user.username && (
-									<a className='link' onClick={() => navigate('/create-event')}>
+									<a
+										className='link'
+										onClick={() => {
+											setExpanded(false);
+											navigate('/create-event');
+										}}>
 										Create an Event
 									</a>
 								)}

@@ -25,7 +25,7 @@ const AllEvents = () => {
 				{events &&
 					events.map((event, index) => {
 						return (
-							<>
+							<div className='all-events-container'>
 								<motion.div
 									initial={{ opacity: 0 }}
 									animate={{ opacity: 1 }}
@@ -42,7 +42,7 @@ const AllEvents = () => {
 										</div>
 									</div>
 								</motion.div>
-							</>
+							</div>
 						);
 					})}
 			</div>

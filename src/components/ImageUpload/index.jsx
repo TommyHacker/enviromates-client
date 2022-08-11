@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 
 export default function ImageUpload() {
 	const [images, setImages] = useState([]);
-	const maxNumber = 2;
+	const maxNumber = 1;
 
 	function handleImages(imageList, addUpdateIndex) {
 		// console.log(imageList, addUpdateIndex);
@@ -43,11 +43,7 @@ export default function ImageUpload() {
 								Click or Drop here
 							</button>
 						</Col>
-						<Col className='mb-4'>
-							<button className='navBtn' onClick={onImageRemoveAll}>
-								Remove all images
-							</button>
-						</Col>
+
 						{imageList.map((image, index) => (
 							<div key={index} className='image-item'>
 								<Image
