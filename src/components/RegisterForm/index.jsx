@@ -9,7 +9,6 @@ import { userActions } from '../../redux-toolkit/user';
 import axios from 'axios';
 import AnimBtn from '../AnimBtn';
 
-
 const RegisterForm = ({ setSwitchForm }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const navigate = useNavigate();
@@ -25,14 +24,13 @@ const RegisterForm = ({ setSwitchForm }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		setIsLoading(true)
+		setIsLoading(true);
 		const formData = new FormData();
 		formData.append('username', username);
 		formData.append('first-name', firstName);
 		formData.append('last-name', lastName);
 		formData.append('email', email);
 		formData.append('password', password);
-		console.log('going to post fetch to login now');
 
 		const options = {
 			method: 'POST',
@@ -40,8 +38,7 @@ const RegisterForm = ({ setSwitchForm }) => {
 			body: formData,
 		};
 
-		setTimeout(() => {	
-
+		setTimeout(() => {
 			fetch('https://enviromates.herokuapp.com/users/register', options)
 				.then((result) => result.json())
 				.then((res) => {
@@ -79,7 +76,7 @@ const RegisterForm = ({ setSwitchForm }) => {
 					}
 				})
 				.catch((err) => console.log(err));
-		}, 3600)		
+		}, 3600);
 	};
 
 	return (
@@ -87,13 +84,17 @@ const RegisterForm = ({ setSwitchForm }) => {
 			<Container className='p-5 d-flex flex-column justify-content-center'>
 				<Row className='p-3 d-flex flex-column justify-content-center'>
 					<h1 className='display-2 text-center'>Register</h1>
-					<p className='redirect text-center' onClick={() => setSwitchForm((prev) => !prev)}>
+					<p
+						className='redirect text-center'
+						onClick={() => setSwitchForm((prev) => !prev)}>
 						Already have an account? Login here
 					</p>
 				</Row>
 				<Form className='form p-4' onSubmit={handleSubmit}>
 					<Form.Group className='mb-3' controlId='registerUsername'>
-						<Form.Label><h3>Username</h3></Form.Label>
+						<Form.Label>
+							<h3>Username</h3>
+						</Form.Label>
 						<Form.Control
 							className='input mb-3 p-2'
 							type='text'
@@ -105,7 +106,9 @@ const RegisterForm = ({ setSwitchForm }) => {
 					</Form.Group>
 
 					<Form.Group className='mb-3' controlId='formFirstName'>
-						<Form.Label><h3>First name</h3></Form.Label>
+						<Form.Label>
+							<h3>First name</h3>
+						</Form.Label>
 						<Form.Control
 							className='input p-2'
 							type='text'
@@ -117,7 +120,9 @@ const RegisterForm = ({ setSwitchForm }) => {
 					</Form.Group>
 
 					<Form.Group className='mb-3' controlId='formLastName'>
-						<Form.Label><h3>Last name</h3></Form.Label>
+						<Form.Label>
+							<h3>Last name</h3>
+						</Form.Label>
 						<Form.Control
 							className='input p-2'
 							type='text'
@@ -129,7 +134,9 @@ const RegisterForm = ({ setSwitchForm }) => {
 					</Form.Group>
 
 					<Form.Group className='mb-3' controlId='formEmail'>
-						<Form.Label><h3>Email address</h3></Form.Label>
+						<Form.Label>
+							<h3>Email address</h3>
+						</Form.Label>
 						<Form.Control
 							className='input p-2'
 							type='email'
@@ -141,7 +148,9 @@ const RegisterForm = ({ setSwitchForm }) => {
 					</Form.Group>
 
 					<Form.Group className='mb-3' controlId='registerPassword'>
-						<Form.Label><h3>Password</h3></Form.Label>
+						<Form.Label>
+							<h3>Password</h3>
+						</Form.Label>
 						<Form.Control
 							className='input p-2'
 							type='password'
@@ -152,13 +161,16 @@ const RegisterForm = ({ setSwitchForm }) => {
 						/>
 					</Form.Group>
 
-					<Row className='p-3 d-flex justify-content-center align-items-center' >
-						{!isLoading ? <button className='submitBtn' variant='primary' type='submit'>
-							Submit
-						</button>
-						: <AnimBtn /> }						
+					<Row className='p-3 d-flex justify-content-center align-items-center'>
+						{!isLoading ? (
+							<button className='submitBtn' variant='primary' type='submit'>
+								Submit
+							</button>
+						) : (
+							<AnimBtn />
+						)}
 					</Row>
-				</Form>				
+				</Form>
 			</Container>
 		</div>
 	);
