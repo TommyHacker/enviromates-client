@@ -1,4 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Mulish:wght@300;400;500;600;700;800;900&display=swap');
+/* @keyframes streak {
+    from {background-color: red;}
+    to {background-color: yellow;}
+} */
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
 
 body{
     margin: 0;
@@ -20,4 +32,38 @@ footer {
     margin-top: 30px;
 }
 
+.usergreet {
+    margin-top: 50px;
+    font-size: 60px;
+    text-align: center;
+    color: white;
+}
 
+.usergreet2 {
+    text-align: center;
+    color: white;
+}
+
+
+.streak {
+    color: #E5CCFF;
+}
+
+.streak-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    /* animation: streak;
+    animation-duration: 5s; */
+    animation-name: spin;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear; 
+  
+}
+
+.content {
+    text-align: center;
+    padding: 30px;
+}
