@@ -44,7 +44,7 @@ const AllEvents = () => {
 											</Accordion.Header>
 												<Accordion.Body>
 													<div className='mb-5'>
-														<h2 className='display-2'>{event.title}</h2>
+														<h4><span className='title-main'>{event.title}</span></h4>
 															<div  onClick={() => navigateHandler(event.id)} key={index}>
 																<h5>{event.description}</h5>
 																<img src={event.img_before} style={{ maxHeight: '200px', maxWidth: '300px', margin:'auto'}} />
