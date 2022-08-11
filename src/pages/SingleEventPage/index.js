@@ -16,6 +16,19 @@ const SingleEventPage = () => {
 	const [host, setHost] = useState('');
 	const [isHost, setIsHost] = useState(false);
 
+	const capitalize = (e) => {
+		let word = e.split('');
+		let arr = [];
+		for (let i = 0; i < word.length; i++) {
+			if (i == 0) {
+				arr.push(word[i].toUpperCase());
+			} else {
+				arr.push(word[i]);
+			}
+		}
+		return arr.join('');
+	};
+
 	const getHostName = () => {
 		const options = {
 			method: 'GET',
@@ -67,9 +80,10 @@ const SingleEventPage = () => {
 							{!isHost && <SignMeUp eventId={id} />}
 							{/* if is the host, add */}
 							{isHost && <CompleteEvent event={event} />}
-							<h1>{event.title}</h1>
-							<h2>{event.description}</h2>
-							{host && <h4>{isHost ? 'You' : { host }}</h4>}
+							<h1>{capitalize(event.title)}</h1>
+							<h2>{capitalize(event.description)}</h2>
+							{isHost && <h4>You are hosting this event.</h4>}
+							{!isHost && <h4>{host}</h4>}
 							<img style={{ width: '200px' }} src={event.img_before} />
 							<h4>Start date: {event.start_date}</h4>
 							<MapStatic event={event} host={host} />

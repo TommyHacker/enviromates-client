@@ -32,8 +32,7 @@ const LoginForm = ({ setSwitchForm }) => {
 			body: formData,
 		};
 
-		setTimeout(() => {		
-
+		setTimeout(() => {
 			fetch('https://enviromates.herokuapp.com/users/login', options)
 				.then((result) => result.json())
 				.then((res) => {
@@ -61,13 +60,13 @@ const LoginForm = ({ setSwitchForm }) => {
 								createdAt: data.created_at,
 							})
 						);
-						navigate('/');
+						navigate('/events');
 					} else {
 						return;
 					}
 				})
 				.catch((err) => console.log(err));
-		}, 3800)
+		}, 3800);
 	};
 
 	return (
