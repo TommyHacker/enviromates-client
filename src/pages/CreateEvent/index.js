@@ -63,7 +63,15 @@ export default function CreateEvent() {
 		setTimeout(() => {
 			fetch('https://enviromates.herokuapp.com/events/', options)
 				.then((response) => response.json())
-				.then((res) => console.log(res))
+				.then((res) => {
+					console.log('response from POST event', res);
+					if (res.success === 'True') {
+						console.log('SUCCESS!!!', res.data.id);
+						// return navigate(`/events/${res.data.id}`);
+					} else {
+						navigate('/events');
+					}
+				})
 				.catch((err) => console.log(err));
 		}, 3800);
 	};
@@ -113,9 +121,9 @@ export default function CreateEvent() {
 						aria-label='Difficulty'
 						onChange={(e) => setDifficulty(e.target.value)}>
 						<option>Difficulty</option>
-						<option value='1'>easy</option>
-						<option value='2'>medium</option>
-						<option value='3'>hard</option>
+						<option value='1'>Easy</option>
+						<option value='2'>Medium</option>
+						<option value='3'>Hard</option>
 					</Form.Select>
 
 					<Form.Group className='mb-3' controlId='formEventDate'>

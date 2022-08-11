@@ -63,15 +63,13 @@ const SingleEventPage = () => {
 				<Container className='d-flex flex-column justify-content-center'>
 					{event ? (
 						<>
-							<SignMeUp eventId={id} />
+							{/* if not the host, show the join button */}
+							{!isHost && <SignMeUp eventId={id} />}
+							{/* if is the host, add */}
 							{isHost && <CompleteEvent event={event} />}
 							<h1>{event.title}</h1>
 							<h2>{event.description}</h2>
-							{host && (
-								<h4>
-									Host : {host} {isHost && '(You)'}
-								</h4>
-							)}
+							{host && <h4>{isHost ? 'You' : { host }}</h4>}
 							<img style={{ width: '200px' }} src={event.img_before} />
 							<h4>Start date: {event.start_date}</h4>
 							<MapStatic event={event} host={host} />

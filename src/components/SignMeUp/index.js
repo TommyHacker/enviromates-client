@@ -24,7 +24,7 @@ const SignMeUp = ({ eventId }) => {
 
 	return (
 		<>
-			<Button onClick={signUpHandler}>Sign Me Up eventId</Button>
+			<Button onClick={signUpHandler}>Sign Me Up</Button>
 		</>
 	);
 };
