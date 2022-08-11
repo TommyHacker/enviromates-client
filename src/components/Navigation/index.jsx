@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -13,6 +13,8 @@ const Navigation = () => {
 	const user = useSelector((state) => state.user);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	// for closing nav dropdown when link is clicked
+	const [expanded, setExpanded] = useState(false);
 
 	const logOutHandler = () => {
 		dispatch(userActions.setUser(''));
@@ -27,6 +29,7 @@ const Navigation = () => {
 				className='nav-container'
 				style={{ margin: '0', padding: '0', width: '100%' }}>
 				<Navbar
+					expanded={expanded}
 					className='navbar-main'
 					bg='light'
 					variant='light'
@@ -42,15 +45,24 @@ const Navigation = () => {
 								className='d-inline-block align-top'
 							/>
 						</Link>
-						<Navbar.Toggle aria-controls='basic-navbar-nav' />
+						<Navbar.Toggle
+							onclick={() => setExpanded(expanded ? false : 'expanded')}
+							aria-controls='basic-navbar-nav'
+						/>
 						<Navbar.Collapse id='basic-navbar-nav'>
 							<Nav className='me-auto mb-3'>
-								<Link className='link home-link' to={'/'}>
+								<Link
+									onClick={() => setExpanded(false)}
+									className='link home-link'
+									to={'/'}>
 									Home
 								</Link>
 
 								{!user.username && (
-									<Link className='link login-link' to={'/login'}>
+									<Link
+										onClick={() => setExpanded(false)}
+										className='link login-link'
+										to={'/login'}>
 										Login
 									</Link>
 								)}
@@ -64,7 +76,10 @@ const Navigation = () => {
 										Create an Event
 									</a>
 								)}
-								<Link className='link events-link' to={'/events'}>
+								<Link
+									onClick={() => setExpanded(false)}
+									className='link events-link'
+									to={'/events'}>
 									All Events
 								</Link>
 							</Nav>
