@@ -40,43 +40,46 @@ const RegisterForm = ({ setSwitchForm }) => {
 			body: formData,
 		};
 
-		fetch('https://enviromates.herokuapp.com/users/register', options)
-			.then((result) => result.json())
-			.then((res) => {
-				if (res.success === 'True') {
-					try {
-						console.log(res);
-						// remove old access token incase there is one
-						window.localStorage.removeItem('accesstoken');
-						// store new fresh accesstoken
-						window.localStorage.setItem('accesstoken', res.token);
+		setTimeout(() => {	
 
-						// grab the user data
-						const data = res.user;
+			fetch('https://enviromates.herokuapp.com/users/register', options)
+				.then((result) => result.json())
+				.then((res) => {
+					if (res.success === 'True') {
+						try {
+							console.log(res);
+							// remove old access token incase there is one
+							window.localStorage.removeItem('accesstoken');
+							// store new fresh accesstoken
+							window.localStorage.setItem('accesstoken', res.token);
 
-						// update user data
-						dispatch(
-							userActions.setUser({
-								...user,
-								id: data.id,
-								username: data.username,
-								firstName: data.first_name,
-								lastName: data.last_name,
-								email: data.email,
-								eventsAttended: data.events_attended_by_user,
-								eventsHosted: data.events_hosted_by_user,
-								createdAt: data.created_at,
-							})
-						);
-						navigate('/');
-					} catch (err) {
-						console.log(err);
+							// grab the user data
+							const data = res.user;
+
+							// update user data
+							dispatch(
+								userActions.setUser({
+									...user,
+									id: data.id,
+									username: data.username,
+									firstName: data.first_name,
+									lastName: data.last_name,
+									email: data.email,
+									eventsAttended: data.events_attended_by_user,
+									eventsHosted: data.events_hosted_by_user,
+									createdAt: data.created_at,
+								})
+							);
+							navigate('/');
+						} catch (err) {
+							console.log(err);
+						}
+					} else {
+						return;
 					}
-				} else {
-					return;
-				}
-			})
-			.catch((err) => console.log(err));
+				})
+				.catch((err) => console.log(err));
+		}, 3800)		
 	};
 
 	return (
