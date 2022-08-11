@@ -17,7 +17,7 @@ export default function Home() {
   function timer(){
     setTimeout(() => {
       navigate('/login')
-      }, 1500)
+      }, 1100)
   }
 
 	return (
@@ -70,7 +70,7 @@ export default function Home() {
                   </Col>
                 </Row>
 								<Card.Text className='py-3'>
-									Ready to take action ? Meet other Enviromates!
+									Ready to take action? Meet other Enviromates!
 								</Card.Text>
                 <Row className='d-flex justify-content-center align-items-center' >
 								  <button className='navBtn' onClick={timer}>

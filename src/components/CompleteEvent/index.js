@@ -33,15 +33,17 @@ const CompleteEvent = ({ event }) => {
 		formData.append('img-after', imageData.secure_url);
 		// append finish date of event
 		formData.append('end-date', currentDate);
+		formData.append('event-id', event.id);
 
 		const options = {
-			method: 'PUT',
+			method: 'PATCH',
 			mode: 'cors',
 			body: formData,
 		};
 
 		// edit the event to set Ended date and After image
-		fetch(`https://enviromates.herokuapp.com/events/${event.id}`, options)
+		// fetch(`https://enviromates.herokuapp.com/events/${event.id}`, options)
+		fetch(`http://localhost:8000/events/${event.id}`, options)
 			.then((response) => response.json())
 			.then((res) => console.log(res))
 			.catch((err) => console.log(err));

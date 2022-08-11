@@ -12,6 +12,7 @@ import Coordinates from '../Coordinates';
 import axios from 'axios';
 import MapMarker from '../MapMarker';
 import { useSelector, useDispatch } from 'react-redux';
+import Container from 'react-bootstrap/Container';
 
 function Map() {
 	const currentLocation = useSelector((state) => state.currentLocation);
