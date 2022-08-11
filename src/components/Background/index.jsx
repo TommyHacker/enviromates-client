@@ -8,13 +8,12 @@ import Navigation from '../Navigation'
 
 export default function Background() {
     return (
-        <Container style={{margin: '0', padding: '0', width: '100%'}}>
-          <Navigation/>
+        <Container style={{margin: '0', padding: '0', width: '100vw'}}>
+          <Navigation />
             <motion.div className='background'
-              initial={{ translateY: 1100}}
-              animate={{translateY: 10}}
-              transition={{ duration: 10.5}}
-              
+              initial={{ translateY: 0}}
+              animate={{translateY:350}}
+              transition={{ duration: 13.5}}
             >
                 <Image fluid src={background} alt="background"/>
             </motion.div>

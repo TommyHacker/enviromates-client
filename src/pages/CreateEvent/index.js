@@ -74,12 +74,14 @@ export default function CreateEvent() {
 			animate={{ opacity: 1 }}
 			transition={{ delay: 0, duration: 1.5 }}
 			exit={{ opacity: 0 }}
-			style={{ marginTop: '20vh', height: '100%' }}>
+			style={{ margin: 'auto', height:'100%'}}>
+			
 			<Container className='p-5 d-flex flex-column justify-content-center'>
 				<Row className='p-3 d-flex flex-column justify-content-center'>
 					<h1 className='display-2 text-center'>Sign in</h1>
 				</Row>
 				<Form className='form p-4' onSubmit={handleSubmit}>
+
 					<Form.Group className='mb-3' controlId='formEventName'>
 						<Form.Label><h3>Name of the event</h3></Form.Label>
 						<Form.Control
