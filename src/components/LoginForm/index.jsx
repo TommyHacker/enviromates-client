@@ -5,10 +5,9 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import axios from 'axios';
 import { userActions } from '../../redux-toolkit/user';
 import AnimBtn from '../AnimBtn';
-import './style.css'
+import './style.css';
 
 const LoginForm = ({ setSwitchForm }) => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -22,25 +21,29 @@ const LoginForm = ({ setSwitchForm }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		setIsLoading(true)
+		setIsLoading(true);
 		const formData = new FormData();
 		formData.append('username', username);
 		formData.append('password', password);
 		console.log('going to post fetch to login now');
-		
-		//setTimeout function
-		axios
-			.post('http://localhost:8000/users/login', formData)
+		const options = {
+			method: 'POST',
+			mode: 'cors',
+			body: formData,
+		};
+
+		fetch('https://enviromates.herokuapp.com/users/login', options)
+			.then((result) => result.json())
 			.then((res) => {
-				if (res.data.success === 'True') {
+				if (res.success === 'True') {
 					console.log(res);
 					// remove old access token incase there is one
 					window.localStorage.removeItem('accesstoken');
 					// store new fresh accesstoken
-					window.localStorage.setItem('accesstoken', res.data.token);
+					window.localStorage.setItem('accesstoken', res.token);
 
 					// grab the user data
-					const data = res.data.user;
+					const data = res.user;
 
 					// update user data
 					dispatch(
@@ -65,17 +68,21 @@ const LoginForm = ({ setSwitchForm }) => {
 	};
 
 	return (
-		<div>		
+		<div>
 			<Container className='p-5 d-flex flex-column justify-content-center'>
 				<Row className='p-3 d-flex flex-column justify-content-center'>
 					<h1 className='display-2 text-center'>Sign in</h1>
-					<p className='redirect text-center' onClick={() => setSwitchForm((prev) => !prev)}>
-							Don't have an account? Register <strong>here</strong>
+					<p
+						className='redirect text-center'
+						onClick={() => setSwitchForm((prev) => !prev)}>
+						Don't have an account? Register <strong>here</strong>
 					</p>
-				</Row>	
+				</Row>
 				<Form className='form p-4' onSubmit={handleSubmit}>
 					<Form.Group className='mb-3' controlId='username'>
-						<Form.Label><h3>Username</h3></Form.Label>
+						<Form.Label>
+							<h3>Username</h3>
+						</Form.Label>
 						<Form.Control
 							className='input mb-3 p-2'
 							type='text'
@@ -86,7 +93,9 @@ const LoginForm = ({ setSwitchForm }) => {
 					</Form.Group>
 
 					<Form.Group className='mb-3' controlId='password'>
-						<Form.Label><h3>Password</h3></Form.Label>
+						<Form.Label>
+							<h3>Password</h3>
+						</Form.Label>
 						<Form.Control
 							className='input p-2'
 							type='password'
@@ -95,11 +104,14 @@ const LoginForm = ({ setSwitchForm }) => {
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 					</Form.Group>
-					<Row className='p-3 d-flex justify-content-center align-items-center' >
-						{!isLoading ? <button className='submitBtn' variant='primary' type='submit'>
-							Submit
-						</button>
-						: <AnimBtn /> }						
+					<Row className='p-3 d-flex justify-content-center align-items-center'>
+						{!isLoading ? (
+							<button className='submitBtn' variant='primary' type='submit'>
+								Submit
+							</button>
+						) : (
+							<AnimBtn />
+						)}
 					</Row>
 				</Form>
 			</Container>
