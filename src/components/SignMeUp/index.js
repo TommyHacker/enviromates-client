@@ -34,11 +34,11 @@ const SignMeUp = ({ eventId, isSignedUp, setIsSignedUp }) => {
 	};
 
 	return (
-		<>
-			<Button className='navBtn' onClick={signUpHandler}>
-				{isSignedUp ? 'Leave Event' : 'Sign Me Up'}
-			</Button>
-		</>
+		
+		<button className='navBtn mb-3' onClick={signUpHandler}>
+			{isSignedUp ? 'Leave Event' : 'Sign Me Up'}
+		</button>
+	
 	);
 };
 

@@ -85,7 +85,6 @@ const SingleEventPage = () => {
 					{event ? (
 						<div className='m-2'>
 							{/* if is the host, add */}
-							{isHost && <CompleteEvent event={event} />}
 							<h1 className='p-4 display-1 text-center'>{capitalize(event.title)}</h1>
 							{isHost && <h4 className='subtitle'>You are hosting this event.</h4>}
 							{!isHost && <h3 className='display-4 my-3 subtitle'>Here is {host}'s event</h3>}
@@ -96,6 +95,7 @@ const SingleEventPage = () => {
 							{/* if not the host, show the join button */}
 							<div className='d-flex flex-column justify-content-center my-5'>
 							{!isHost && <SignMeUp eventId={id} />}
+							{isHost && <CompleteEvent event={event} />}
 							</div>
 						</div>
 					) : (
