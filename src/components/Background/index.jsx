@@ -12,7 +12,7 @@ export default function Background() {
           <Navigation />
             <motion.div className='background'
               initial={{ translateY: 0}}
-              animate={{translateY:890}}
+              animate={{translateY: 550}}
               transition={{ duration: 24.5}}
             >
                 <Image fluid src={background} alt="background"/>
