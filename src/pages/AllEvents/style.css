@@ -8,8 +8,7 @@
 .events-list{
     border-radius: 1.8rem;
     background-color: #CA9AFE;
-    opacity: .9;
-    
+    opacity: .9; 
 }
 
 .subtitle{
@@ -24,4 +23,8 @@
 .challenege-info{
     color: black;
     text-align: center;
+}
+
+.backgroundColor{
+    background-color: transparent;
 }

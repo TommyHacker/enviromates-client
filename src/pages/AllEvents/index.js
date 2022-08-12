@@ -24,7 +24,7 @@ const AllEvents = () => {
 	return (
 		<>
 			<Container className='p-5 d-flex flex-column justify-content-center'>
-				<h1 className='text-center display-1'>Meet other Enviromates!</h1>
+				<h1 className='text-center display-1'>Meet other EnviroMates!</h1>
 				<h4 className='text-center subtitle'>Join one of our events</h4>
 			</Container>
 			<div className='events-list p-4 mx-3 d-flex flex-column justify-content-center'>
@@ -42,7 +42,7 @@ const AllEvents = () => {
 									<Accordion.Item eventKey="0">
 											<Accordion.Header><h2>{event.title} <br/><span className='mt-2 challenge-info'> Challenge Level: {event.difficulty} </span></h2>
 											</Accordion.Header>
-												<Accordion.Body>
+												<Accordion.Body className='backgroundColor'>
 													<div className='mb-5'>
 														<h4><span className='title-main'>{event.title}</span></h4>
 															<div  onClick={() => navigateHandler(event.id)} key={index}>
