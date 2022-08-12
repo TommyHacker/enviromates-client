@@ -53,9 +53,10 @@ const CompleteEvent = ({ event }) => {
 		<Container>
 			<Form onSubmit={handleSubmit}>
 				<Form.Group controlId='formImageUpload' onChange={imageHandler}>
+					<Form.Label><h3>Add an image</h3></Form.Label>
 					<ImageUpload />
 				</Form.Group>
-				<Button variant='primary' type='submit'>
+				<Button className='navBtn' variant='primary' type='submit'>
 					Close Event
 				</Button>
 			</Form>
