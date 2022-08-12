@@ -85,7 +85,7 @@ export default function CreateEvent() {
 			animate={{ opacity: 1 }}
 			transition={{ delay: 0, duration: 1.5 }}
 			exit={{ opacity: 0 }}
-			style={{ margin: 'auto', height: '100%' }}>
+			>
 			<Container className='p-5 d-flex flex-column justify-content-center'>
 				<Row className='p-3 d-flex flex-column justify-content-center'>
 					<h1 className='display-2 text-center'>Create your own events</h1>
@@ -165,6 +165,14 @@ export default function CreateEvent() {
 					</Row>
 				</Form>
 			</Container>
+
+
+			{/* MAP COMPONENT ------------------------- */}
+
+			<Map style={{width: '100%'}}/>
+
+
+
 		</motion.div>
 	);
 }
