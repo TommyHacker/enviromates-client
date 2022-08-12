@@ -8,7 +8,6 @@ export const currentLocationSlice = createSlice({
 	},
 	reducers: {
 		setLocation: (state, { payload }) => {
-			console.log('set user payload', payload);
 			state.longitude = payload.longitude;
 			state.latitude = payload.latitude;
 		},

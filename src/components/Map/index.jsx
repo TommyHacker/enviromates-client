@@ -62,8 +62,10 @@ function Map() {
 	);
 
 	return (
-		<div id="map">
-			{map ? <Coordinates map={map} /> : null}
+
+		<div className='map-box'>
+			{/* {map ? <Coordinates map={map} /> : null} */}
+
 			{displayMap}
 		</div>
 	);

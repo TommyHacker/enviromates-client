@@ -26,7 +26,7 @@ const App = () => {
 		fetch('https://enviromates.herokuapp.com/users', options)
 			.then((result) => result.json())
 			.then((res) => {
-				console.log(res);
+				// console.log(res);
 				if (res.success === 'True') {
 					const data = res.user;
 					dispatch(

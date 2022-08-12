@@ -25,15 +25,13 @@ const LoginForm = ({ setSwitchForm }) => {
 		const formData = new FormData();
 		formData.append('username', username);
 		formData.append('password', password);
-		console.log('going to post fetch to login now');
 		const options = {
 			method: 'POST',
 			mode: 'cors',
 			body: formData,
 		};
 
-		setTimeout(() => {		
-
+		setTimeout(() => {
 			fetch('https://enviromates.herokuapp.com/users/login', options)
 				.then((result) => result.json())
 				.then((res) => {
@@ -61,13 +59,13 @@ const LoginForm = ({ setSwitchForm }) => {
 								createdAt: data.created_at,
 							})
 						);
-						navigate('/');
+						navigate('/events');
 					} else {
 						return;
 					}
 				})
 				.catch((err) => console.log(err));
-		}, 3600)
+		}, 3600);
 	};
 
 	return (

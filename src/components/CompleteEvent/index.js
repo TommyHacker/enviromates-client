@@ -43,7 +43,7 @@ const CompleteEvent = ({ event }) => {
 
 		// edit the event to set Ended date and After image
 		// fetch(`https://enviromates.herokuapp.com/events/${event.id}`, options)
-		fetch(`http://localhost:8000/events/${event.id}`, options)
+		fetch(`https://enviromates.herokuapp.com/events/${event.id}`, options)
 			.then((response) => response.json())
 			.then((res) => console.log(res))
 			.catch((err) => console.log(err));

@@ -6,13 +6,30 @@
     font-size: 1.3rem;
 }
 .events-list{
-    border-radius: 1.8rem;
-    background-color: #CA9AFE;
-    opacity: .9; 
+	border-radius: 1.8rem;
+	background-color: #ca9afe;
+	opacity: 0.9;
+	color: #fff;
+
 }
 
-.subtitle{
-    color: #fff;
+.subtitle {
+	color: #fff;
+}
+
+.all-events-container {
+	border: solid rgba(0, 0, 0, 0) 1px;
+	text-align: center;
+	padding: 20px;
+}
+
+.all-events-container {
+	cursor: pointer;
+}
+
+.all-events-container:hover {
+	border: solid rgba(0, 0, 0, 0.222) 1px;
+	border-radius: 4px;
 }
 
 .title-main{

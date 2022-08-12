@@ -8,24 +8,47 @@ const MapMarker = ({ event, index }) => {
 		let result;
 		switch (num) {
 			case '1':
-				result = 'easy';
+				result = 'Easy';
 			case '2':
-				result = 'medium';
+				result = 'Medium';
 			case '3':
-				result = 'hard';
+				result = 'Hard';
 		}
 		return result;
+	};
+
+	const randomiseAttendees = () => {
+		const result = Math.floor(Math.random() * 20);
+		if (result < 3) return 5;
+		return result;
+	};
+
+	const capitalize = (e) => {
+		try {
+			let word = e.split('');
+			let arr = [];
+			for (let i = 0; i < word.length; i++) {
+				if (i == 0) {
+					arr.push(word[i].toUpperCase());
+				} else {
+					arr.push(word[i]);
+				}
+			}
+			return arr.join('');
+		} catch (err) {
+			return e;
+		}
 	};
 
 	return (
 		<div key={index}>
 			<Marker position={[Number(event.latitude), Number(event.longitude)]}>
 				<Popup>
-					{event.title} <br />
+					{capitalize(event.title)} <br />
 					When: {event.start_date.slice(0, 10)}
 					<br />
 					Difficulty: {difficultyTranslator(event.difficulty)} <br />
-					Attendees: 107 <br />
+					Attendees: {randomiseAttendees()} <br />
 					<Link to={`/event/${event.id}`}>JOIN US</Link>
 				</Popup>
 			</Marker>

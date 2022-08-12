@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ImageUpload from '../../components/ImageUpload';
 import { Map } from '../../components';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import axios from 'axios';
 import AnimBtn from '../../components/AnimBtn';
 import { motion } from 'framer-motion';
 const url = 'https://api.cloudinary.com/v1_1/dgoun8ulz/image/upload';
@@ -17,6 +15,7 @@ export default function CreateEvent() {
 	const navigate = useNavigate();
 
 	const currentLocation = useSelector((state) => state.currentLocation);
+	const user = useSelector((state) => state.user);
 
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
@@ -60,14 +59,25 @@ export default function CreateEvent() {
 			body: formData,
 		};
 
-		setTimeout(() => {	
-
+		setTimeout(() => {
 			fetch('https://enviromates.herokuapp.com/events/', options)
 				.then((response) => response.json())
-				.then((res) => console.log(res))
+				.then((res) => {
+					if (res.success === 'True') {
+						return navigate(`/events/${res.data.id}`);
+					} else {
+						navigate('/events');
+					}
+				})
 				.catch((err) => console.log(err));
-		}, 3600)
+		}, 3600);
 	};
+
+	useEffect(() => {
+		if (!user.username || user.username == '') {
+			navigate('/login');
+		}
+	}, []);
 
 	return (
 		<motion.div
@@ -76,15 +86,15 @@ export default function CreateEvent() {
 			transition={{ delay: 0, duration: 1.5 }}
 			exit={{ opacity: 0 }}
 			>
-			
 			<Container className='p-5 d-flex flex-column justify-content-center'>
 				<Row className='p-3 d-flex flex-column justify-content-center'>
 					<h1 className='display-2 text-center'>Create your own events</h1>
 				</Row>
 				<Form className='form p-4' onSubmit={handleSubmit}>
-
 					<Form.Group className='mb-3' controlId='formEventName'>
-						<Form.Label><h3>Name of the event</h3></Form.Label>
+						<Form.Label>
+							<h3>Name of the event</h3>
+						</Form.Label>
 						<Form.Control
 							className='input mb-3 p-2'
 							type='text'
@@ -96,7 +106,9 @@ export default function CreateEvent() {
 					</Form.Group>
 
 					<Form.Group className='mb-3' controlId='formDescription'>
-						<Form.Label><h3>Description</h3></Form.Label>
+						<Form.Label>
+							<h3>Description</h3>
+						</Form.Label>
 						<Form.Control
 							as='textarea'
 							className='input mb-3 p-2'
@@ -112,18 +124,22 @@ export default function CreateEvent() {
 						aria-label='Difficulty'
 						onChange={(e) => setDifficulty(e.target.value)}>
 						<option>Difficulty</option>
-						<option value='1'>easy</option>
-						<option value='2'>medium</option>
-						<option value='3'>hard</option>
+						<option value='1'>Easy</option>
+						<option value='2'>Medium</option>
+						<option value='3'>Hard</option>
 					</Form.Select>
 
 					<Form.Group controlId='formImageUpload' onChange={imageHandler}>
-						<Form.Label><h3>Add Images</h3></Form.Label>
-							<ImageUpload />
+						<Form.Label>
+							<h3>Add Images</h3>
+						</Form.Label>
+						<ImageUpload />
 					</Form.Group>
 
 					<Form.Group className='my-3' controlId='formEventDate'>
-						<Form.Label><h3>Select a Start Date</h3></Form.Label>
+						<Form.Label>
+							<h3>Select a Start Date</h3>
+						</Form.Label>
 						<Form.Control
 							className='input'
 							type='date'
@@ -132,6 +148,11 @@ export default function CreateEvent() {
 							onChange={(e) => setDate(e.target.value)}
 						/>
 					</Form.Group>
+
+					{/* MAP COMPONENT ------------------------- */}
+					<div>
+						<Map />
+					</div>
 
 					<Row className='p-3 d-flex justify-content-center align-items-center'>
 						{!isLoading ? (
@@ -145,9 +166,11 @@ export default function CreateEvent() {
 				</Form>
 			</Container>
 
+
 			{/* MAP COMPONENT ------------------------- */}
 
 			<Map style={{width: '100%'}}/>
+
 
 
 		</motion.div>
