@@ -87,7 +87,7 @@ const RegisterForm = ({ setSwitchForm }) => {
 					<p
 						className='redirect text-center'
 						onClick={() => setSwitchForm((prev) => !prev)}>
-						Already have an account? Login here
+						Already have an account? <strong>Login here</strong>.
 					</p>
 				</Row>
 				<Form className='form p-4' onSubmit={handleSubmit}>
@@ -96,6 +96,7 @@ const RegisterForm = ({ setSwitchForm }) => {
 							<h3>Username</h3>
 						</Form.Label>
 						<Form.Control
+							required
 							className='input mb-3 p-2'
 							type='text'
 							placeholder='Type your username'
@@ -110,6 +111,7 @@ const RegisterForm = ({ setSwitchForm }) => {
 							<h3>First name</h3>
 						</Form.Label>
 						<Form.Control
+							required
 							className='input p-2'
 							type='text'
 							placeholder='First name'
@@ -124,6 +126,7 @@ const RegisterForm = ({ setSwitchForm }) => {
 							<h3>Last name</h3>
 						</Form.Label>
 						<Form.Control
+							required
 							className='input p-2'
 							type='text'
 							placeholder='Last name'
@@ -138,6 +141,7 @@ const RegisterForm = ({ setSwitchForm }) => {
 							<h3>Email address</h3>
 						</Form.Label>
 						<Form.Control
+							required
 							className='input p-2'
 							type='email'
 							placeholder='Enter your email'
@@ -152,6 +156,7 @@ const RegisterForm = ({ setSwitchForm }) => {
 							<h3>Password</h3>
 						</Form.Label>
 						<Form.Control
+							required
 							className='input p-2'
 							type='password'
 							placeholder='Type your password'

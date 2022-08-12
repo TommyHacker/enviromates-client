@@ -6,7 +6,6 @@ h1, h3{
 
 .form{
     border-radius: 1.8rem;
-    /* background-color: #87CBEC; */
     background-color: #BED080;
     opacity: .9;
     color: #fff;
@@ -37,5 +36,6 @@ h1, h3{
 .redirect{
     font-size: 1.1rem;
     color: #fff;
+    cursor: pointer;
 }
 

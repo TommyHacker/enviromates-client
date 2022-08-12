@@ -6,6 +6,7 @@ import { MapStatic } from '../../components';
 import CompleteEvent from '../../components/CompleteEvent';
 import SignMeUp from '../../components/SignMeUp';
 import { motion } from 'framer-motion';
+import './style.css';
 
 const SingleEventPage = () => {
 	const { id } = useParams();
@@ -82,25 +83,25 @@ const SingleEventPage = () => {
 					
 				</Container>	
 
-				<Container className='d-flex flex-column justify-content-center'>
+				<div className='single-event p-5 d-flex flex-column justify-content-center'>
 					{event ? (
 						<>
-							{/* if not the host, show the join button */}
-							{!isHost && <SignMeUp eventId={id} />}
 							{/* if is the host, add */}
 							{isHost && <CompleteEvent event={event} />}
-							<h1>{capitalize(event.title)}</h1>
-							<h2>{capitalize(event.description)}</h2>
-							{isHost && <h4>You are hosting this event.</h4>}
-							{!isHost && <h4>{host}</h4>}
+							<h1 className='p-4 display-1 text-center'>{capitalize(event.title)}</h1>
+							<h4 className='subtitle'>{capitalize(event.description)}</h4>
+							{isHost && <h4 className='subtitle'>You are hosting this event.</h4>}
+							{!isHost && <h4 className='display-4 subtitle'>{host}</h4>}
 							<img style={{ width: '200px' }} src={event.img_before} />
 							<h4>Start date: {event.start_date}</h4>
 							<MapStatic event={event} host={host} />
+							{/* if not the host, show the join button */}
+							{!isHost && <SignMeUp eventId={id} />}
 						</>
 					) : (
-						'loading'
+						<h3 className='display-2'>Loading...</h3>			
 					)}
-				</Container>
+				</div>
 			</motion.div>
 		</>
 	);

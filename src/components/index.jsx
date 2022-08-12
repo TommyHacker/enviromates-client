@@ -12,7 +12,9 @@ export { default as MapStatic } from './MapStatic';
 
 export { default as AnimBtn } from './AnimBtn';
 
-export { default as Coordinates } from './Coordinates'
+export { default as Coordinates } from './Coordinates';
 
-export { default as Background } from './Background'
+export { default as Background } from './Background';
+ 
+// export { default as TwitterShareLink } from './TwitterShareLink';
 

@@ -96,6 +96,7 @@ export default function CreateEvent() {
 							<h3>Name of the event</h3>
 						</Form.Label>
 						<Form.Control
+							required
 							className='input mb-3 p-2'
 							type='text'
 							placeholder='Event name'
@@ -110,6 +111,7 @@ export default function CreateEvent() {
 							<h3>Description</h3>
 						</Form.Label>
 						<Form.Control
+							required
 							as='textarea'
 							className='input mb-3 p-2'
 							placeholder='Describe the event'
@@ -141,6 +143,7 @@ export default function CreateEvent() {
 							<h3>Select a Start Date</h3>
 						</Form.Label>
 						<Form.Control
+							required
 							className='input'
 							type='date'
 							name='eventDate'
