@@ -16,6 +16,7 @@ const SingleEventPage = () => {
 	const [loading, setLoading] = useState(true);
 	const [host, setHost] = useState('');
 	const [isHost, setIsHost] = useState(false);
+	const [isSignedUp, setIsSignedUp] = useState(false);
 
 	const capitalize = (e) => {
 		try {
@@ -47,12 +48,13 @@ const SingleEventPage = () => {
 
 	useEffect(() => {
 		setEvent(...events.filter((e) => e.id == id));
-
-		// fetch event if not already populated....... backend not serving this yet.
-		// const options = { method: 'GET', mode: 'cors' };
-		// fetch(`http://localhost:8000/events/${id}`, options)
-		// 	.then((res) => res.json())
-		// 	.then((data) => console.log(data));
+		if (events.length < 2) {
+			// fetch event if not already populated....... backend not serving this yet.
+			const options = { method: 'GET', mode: 'cors' };
+			fetch(`https://enviromates.herokuapp.com/events/${id}`, options)
+				.then((res) => res.json())
+				.then((data) => setEvent(data.event));
+		}
 	}, []);
 
 	useEffect(() => {
@@ -78,10 +80,7 @@ const SingleEventPage = () => {
 				transition={{ delay: 0.1, duration: 1.2 }}
 				exit={{ opacity: 0 }}
 				style={{ margin: 'auto', height: '100%' }}>
-
-				<Container>
-					
-				</Container>	
+				<Container></Container>
 
 				<div className='single-event p-5 d-flex flex-column justify-content-center'>
 					{event ? (

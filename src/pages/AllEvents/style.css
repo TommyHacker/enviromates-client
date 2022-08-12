@@ -1,8 +1,16 @@
-.events-list {
+
+.challenge-info{
+    display:flex;
+    align-self: center;
+    text-align: center;
+    font-size: 1.3rem;
+}
+.events-list{
 	border-radius: 1.8rem;
 	background-color: #ca9afe;
 	opacity: 0.9;
 	color: #fff;
+
 }
 
 .subtitle {
@@ -22,4 +30,18 @@
 .all-events-container:hover {
 	border: solid rgba(0, 0, 0, 0.222) 1px;
 	border-radius: 4px;
+}
+
+.title-main{
+    color: black;
+    text-align: center;
+}
+
+.challenege-info{
+    color: black;
+    text-align: center;
+}
+
+.backgroundColor{
+    background-color: transparent;
 }

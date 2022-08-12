@@ -1,3 +1,16 @@
+#map {
+    height: 700px;
+}
+.map-container {   
+    margin: 0;
+    width: 100vw;
+
+}
+
+    .map-box{
+        height: 25px;
+    }
+
 .map-container {
 	margin: 0;
 	width: 100%;
@@ -18,3 +31,4 @@
 	max-width: 100%;
 	width: 100%;
 }
+
