@@ -152,11 +152,7 @@ export default function CreateEvent() {
 						/>
 					</Form.Group>
 
-					{/* MAP COMPONENT ------------------------- */}
-					<div>
-						<Map />
-					</div>
-
+					
 					<Row className='p-3 d-flex justify-content-center align-items-center'>
 						{!isLoading ? (
 							<button className='submitBtn' variant='primary' type='submit'>
@@ -166,6 +162,11 @@ export default function CreateEvent() {
 							<AnimBtn />
 						)}
 					</Row>
+					{/* MAP COMPONENT ------------------------- */}
+					<div>
+						<Map />
+					</div>
+
 				</Form>
 			</Container>
 		</motion.div>
