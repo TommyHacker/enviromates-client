@@ -6,7 +6,6 @@ import { MapStatic } from '../../components';
 import CompleteEvent from '../../components/CompleteEvent';
 import SignMeUp from '../../components/SignMeUp';
 import { motion } from 'framer-motion';
-import ShareLinks from '../../components/ShareLinks';
 
 const SingleEventPage = () => {
 	const { id } = useParams();
@@ -102,7 +101,6 @@ const SingleEventPage = () => {
 							<img style={{ width: '200px' }} src={event.img_before} />
 							<h4>Start date: {event.start_date}</h4>
 							<MapStatic event={event} host={host} />
-							<ShareLinks />
 						</>
 					) : (
 						'loading'
