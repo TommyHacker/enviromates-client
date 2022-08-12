@@ -76,7 +76,7 @@ const LoginForm = ({ setSwitchForm }) => {
 					<p
 						className='redirect text-center'
 						onClick={() => setSwitchForm((prev) => !prev)}>
-						Don't have an account? Register <strong>here</strong>
+						Don't have an account? <strong>Register here</strong>
 					</p>
 				</Row>
 				<Form className='form p-4' onSubmit={handleSubmit}>
@@ -85,6 +85,7 @@ const LoginForm = ({ setSwitchForm }) => {
 							<h3>Username</h3>
 						</Form.Label>
 						<Form.Control
+							required
 							className='input mb-3 p-2'
 							type='text'
 							placeholder='Type your username'
@@ -98,6 +99,7 @@ const LoginForm = ({ setSwitchForm }) => {
 							<h3>Password</h3>
 						</Form.Label>
 						<Form.Control
+							required
 							className='input p-2'
 							type='password'
 							placeholder='Type your password'

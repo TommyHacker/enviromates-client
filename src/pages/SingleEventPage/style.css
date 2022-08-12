@@ -1,0 +1,10 @@
+.single-event{
+    background: rgb(80, 167, 235, .7);
+    border-radius: 1.8rem;
+    margin: 10vw;
+
+}
+
+.host-name{
+    font-size: 1.5rem;
+}
