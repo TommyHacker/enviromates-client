@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-const SignMeUp = ({ eventId }) => {
+const SignMeUp = ({ eventId, isSignedUp, setIsSignedUp }) => {
 	const navigate = useNavigate();
 	const user = useSelector((state) => state.user);
 
@@ -15,7 +15,12 @@ const SignMeUp = ({ eventId }) => {
 		const formData = new FormData();
 		const token = window.localStorage.getItem('accesstoken');
 		formData.append('accesstoken', token);
-		formData.append('join', 'true');
+		if (isSignedUp) {
+			formData.append('leave', 'true');
+		} else {
+			formData.append('join', 'true');
+		}
+
 		formData.append('event-id', eventId);
 
 		const options = {
@@ -31,7 +36,7 @@ const SignMeUp = ({ eventId }) => {
 	return (
 		<>
 			<Button className='navBtn' onClick={signUpHandler}>
-				Sign Me Up
+				{isSignedUp ? 'Leave Event' : 'Sign Me Up'}
 			</Button>
 		</>
 	);

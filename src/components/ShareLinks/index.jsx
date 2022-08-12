@@ -1,17 +1,17 @@
-import FacebookShareLink from '../FadcebookShareLink';
+import React from 'react';
+import FacebookShareLink from '../FacebookShareLink';
 import TwitterShareLink from '../TwitterShareLink';
-
 const ShareLinks = () => {
 	return (
 		<>
 			<TwitterShareLink
-				url={'INSERT URL TO LINK BACK TO HERE'}
+				url={'https://enviromates.co.uk/'}
 				title={'INSERT TITLE'}
-				hashtags={'INSERT PREPOPULATED HASHTAGS FOR TWEET'}
+				hashtags={['#enviromates', '#greenplanet']}
 				description={'INSERT TWEET BODY'}
 			/>
 			<FacebookShareLink
-				url={'INSERT URL TO LINK BACK TO HERE'}
+				url={'https://enviromates.co.uk/'}
 				quote={'INSERT PREPOPULATED FACEBOOK QUOTE'}
 				hashtag={'INSERT PREPOPULATED HASH'}
 				description={'INSERT PREPOPULATED FACEBOOK DESCRIPTION'}
