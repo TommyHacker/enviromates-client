@@ -168,14 +168,6 @@ export default function CreateEvent() {
 					</Row>
 				</Form>
 			</Container>
-
-
-			{/* MAP COMPONENT ------------------------- */}
-
-			<Map style={{width: '100%'}}/>
-
-
-
 		</motion.div>
 	);
 }
