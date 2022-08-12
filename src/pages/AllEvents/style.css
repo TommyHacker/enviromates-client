@@ -18,7 +18,7 @@
 }
 
 .all-events-container {
-	border: solid rgba(0, 0, 0, 0) 1px;
+	border: none;
 	text-align: center;
 	padding: 20px;
 }
@@ -26,22 +26,35 @@
 .all-events-container {
 	cursor: pointer;
 }
-
-.all-events-container:hover {
-	border: solid rgba(0, 0, 0, 0.222) 1px;
-	border-radius: 4px;
+.event-title{
+	color: #CA9AFE;
 }
 
+.event-title:hover{
+	color:#7CB579;
+
+}
+
+/* .all-events-container:hover {
+	border: solid rgba(0, 0, 0, 0.222) 1px;
+	border-radius: 4px;
+} */
+
 .title-main{
-    color: black;
+    color: #2A3439;
+	font-weight: 900;
     text-align: center;
 }
 
-.challenege-info{
-    color: black;
+.challenge-info{
+    color: #7CB579;
     text-align: center;
 }
 
 .backgroundColor{
     background-color: transparent;
+}
+
+.backgroundColor:hover{
+    background-color: #ead7ff;
 }

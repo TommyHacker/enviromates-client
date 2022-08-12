@@ -20,6 +20,23 @@ const AllEvents = () => {
 		navigate(`/event/${id}`);
 	};
 
+	const capitalize = (e) => {
+		try {
+			let word = e.split('');
+			let arr = [];
+			for (let i = 0; i < word.length; i++) {
+				if (i == 0) {
+					arr.push(word[i].toUpperCase());
+				} else {
+					arr.push(word[i]);
+				}
+			}
+			return arr.join('');
+		} catch (err) {
+			return e;
+		}
+	};
+
 	return (
 		<>
 			<Container className='p-5 d-flex flex-column justify-content-center'>
@@ -37,15 +54,15 @@ const AllEvents = () => {
 									transition={{ delay: 0.1, duration: 1.2}}
 									exit={{opacity: 0}}
 									>	
-										<Accordion defaultActiveKey="1" className='m-2 p-0 mt-4 event-title'>	
+										<Accordion defaultActiveKey="1" className='m-2 p-0 mt-4 '>	
 												<Accordion.Item eventKey="0">
-														<Accordion.Header><h2>{event.title} <br/><span className='mt-2 challenge-info'> Challenge Level: {event.difficulty} </span></h2>
+														<Accordion.Header><h2 className='event-title'>{event.title} <br/><span className='mt-2 challenge-info'> Challenge Level: {event.difficulty} </span></h2>
 														</Accordion.Header>
 															<Accordion.Body className='backgroundColor'>
 																<div className='mb-5'>
-																	<h4><span className='title-main'>{event.title}</span></h4>
+																	<h4><span className='title-main mt-2'>{capitalize(event.title)}</span></h4>
 																		<div  onClick={() => navigateHandler(event.id)} key={index}>
-																			<h5>{event.description}</h5>
+																			<h5 className='fs-6 mt-3 mb-4'>{capitalize(event.description)}</h5>
 																			<img src={event.img_before} style={{ maxHeight: '200px', maxWidth: '300px', margin:'auto'}} />
 																		</div>
 																</div>
