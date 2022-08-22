@@ -6,9 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion'
 import Accordion from 'react-bootstrap/Accordion';
 import './style.css'
-import teamwork1 from '../../assets/images/teamwork1.png'
-import teamwork2 from '../../assets/images/teamwork2.png'
-import teamwork3 from '../../assets/images/teamwork3.png'
 
 const AllEvents = () => {
 

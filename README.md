@@ -5,6 +5,10 @@ React client for enviromates webapp
 Installation
     - npm install
 
+Deployment
+    - npm run dev
+
+
 Changelog:
     - created folder structure
     - added packages :
@@ -17,6 +21,7 @@ Changelog:
         # file-loader
         # lottie-web
         # leafletjs
+        # framer animations
         
     - added the routes in App.js
     - created Navigation
