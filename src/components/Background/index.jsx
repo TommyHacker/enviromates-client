@@ -11,8 +11,8 @@ import { useMediaQuery } from 'react-responsive'
 export default function Background() {
   
   // Background responsiveness
-  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' })
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1024px)' })
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1025px)' })
 
     return (
       <>
