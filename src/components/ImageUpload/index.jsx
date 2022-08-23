@@ -54,7 +54,7 @@ export default function ImageUpload() {
 								/>
 								<div className='mt-2 image-item__btn-wrapper'>
 									<button
-										className='navBtn mt-3 me-3'
+										className='navBtn my-3 me-3'
 										onClick={() => onImageUpdate(index)}>
 										Update Image
 									</button>

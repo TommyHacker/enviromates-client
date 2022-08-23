@@ -13,14 +13,11 @@
     border-radius: 25px;
 }
 
-.catch-phrase{
-    color: #fff;
-}
-
 .card{
     opacity: .9;
     border: none;
-    border-radius: 1.8rem
+    border-radius: 1.8rem;
+    width: 18rem;
 }
 
 .card-title{
@@ -28,62 +25,19 @@
     color: #7CB579;
 }
 
-.navBtn{
-    position: relative;
-    background-color: #CA9AFE;
-    border-radius: 4em;
-    border: none;
-    outline: none;
-    font-size: 1em;
-    color: #fff;
-    padding: 0.5em 1.5em;
-    cursor:pointer;
-    user-select:none;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition-duration: 0.4s;
-    -webkit-transition-duration: 0.4s; /* Safari */
-  }
-  
-  .navBtn:hover {
-    transition-duration: 0.1s;
-    background-color: #CA9AFE;
-    outline: none;
-  }
-  
-  .navBtn:after {
-    content: "";
-    display: block;
-    position: absolute;
-    border-radius: 4em;
-    border: none;
-    outline: none;
-    left: 0;
-    top:0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: all 0.5s;
-    box-shadow: 0 0 10px 40px #E5CCFF;
-  }
-  
-  .navBtn:active:after {
-    box-shadow: 0 0 0 0 #E5CCFF;
-    position: absolute;
-    border-radius: 4em;
-    border: none;
-    outline: none;
-    left: 0;
-    top:0;
-    opacity: 1;
-    transition: 0s;
-  }
-  
-  .navBtn:active {
-    top: 1px;
-    outline: none;
+@media (min-width: 1200px){
+
+  .card{
+    width: 25rem;
   }
 
+  .card-title{
+    font-size: 2.8rem;
+    color: #7CB579;
+  }
 
+  .card-text{
+    font-size: 1.2rem;
+  }
+}
 

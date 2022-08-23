@@ -24,7 +24,7 @@ export default function Home() {
 				// if not logged in, navigate to login
 				navigate('/login');
 			}
-		}, 1500);
+		}, 1000);
 	}
 
 	return (
@@ -33,29 +33,28 @@ export default function Home() {
 			animate={{ opacity: 1 }}
 			transition={{ delay: 0.1, duration: 1.3 }}
 			exit={{ opacity: 0 }}>
-			{/* <img className='main-logo' src={logo} alt='logo'></img> */}
+			
 			<Container className='h-60 d-flex flex-column justify-content-center'>
-				{/* <Image fluid src={logo} alt="logo"></Image> */}
 				<Row className='mt-5 d-flex justify-content-center'>
-					<h1 className='catch-phrase text-center display-1'>
+					<h1 className='display-1 text-center'>
 						Making change, together!
 					</h1>
 				</Row>
-				<Row>
-					<Col className='my-5 d-flex justify-content-center align-items-center'>
-						<Card className='p-3 card' style={{ width: '18rem' }}>
+				<Row className='my-5'>
+					<Col className='my-5 d-flex justify-content-center justify-content-xl-end me-xl-5 align-items-center'>
+						<Card className='p-3 p-xl-5 card'>
 							<Card.Body>
 								<Row className='align-items-start'>
-									<Col xs={4}>
+									<Col className='my-xl-auto' xs={4}>
 										<Image style={{ width: '3.8rem' }} src={locationPointer} />
 									</Col>
-									<Col xs={8}>
+									<Col className='border' xs={8}>
 										<Card.Title>
 											<h3 className='card-title'>Location Alert</h3>
 										</Card.Title>
 									</Col>
 								</Row>
-								<Card.Text className='py-3'>
+								<Card.Text className='py-3 card-text'>
 									Mark a place to clean here. <br />
 									Be an Enviromate!
 								</Card.Text>
@@ -67,8 +66,8 @@ export default function Home() {
 							</Card.Body>
 						</Card>
 					</Col>
-					<Col className='d-flex justify-content-center align-items-center'>
-						<Card className='p-3 card' style={{ width: '18rem' }}>
+					<Col className='d-flex justify-content-center justify-content-xl-start ms-xl-5 align-items-center'>
+						<Card className='p-3 p-xl-5 card'>
 							<Card.Body>
 								<Row className='align-items-start'>
 									<Col xs={7}>
@@ -76,7 +75,7 @@ export default function Home() {
 											<h3 className='card-title'>Take Action!</h3>
 										</Card.Title>
 									</Col>
-									<Col xs={5}>
+									<Col className='my-xl-auto' xs={5}>
 										<Image
 											className='me-1'
 											style={{ width: '5.5rem' }}
@@ -84,7 +83,7 @@ export default function Home() {
 										/>
 									</Col>
 								</Row>
-								<Card.Text className='py-3'>
+								<Card.Text className='py-3 card-text'>
 									Ready to take action? Meet other Enviromates!
 								</Card.Text>
 								<Row className='d-flex justify-content-center align-items-center'>
