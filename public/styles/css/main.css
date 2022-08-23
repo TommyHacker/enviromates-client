@@ -78,16 +78,6 @@ h4, h5, h6, p{
     outline: none;
 }
 
-
-
-.contentbg {
-    /* background-color: #E5CCFF; */
-    background: rgb(190, 208, 128, .8);
-    margin: 30px;
-    border-radius: 1.8rem;
-    
-}
-
 #root{
     margin: 0;
     padding: 0;

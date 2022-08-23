@@ -70,7 +70,7 @@ const LoginForm = ({ setSwitchForm }) => {
 
 	return (
 		<div>
-			<Container className='p-5 d-flex flex-column justify-content-center'>
+			<Container className='p-5 m-xl-5 d-flex flex-column justify-content-center'>
 				<Row className='p-3 d-flex flex-column justify-content-center'>
 					<h1 className='display-2 text-center'>Sign in</h1>
 					<p

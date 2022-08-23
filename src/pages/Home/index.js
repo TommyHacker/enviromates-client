@@ -35,12 +35,12 @@ export default function Home() {
 			exit={{ opacity: 0 }}>
 			
 			<Container className='h-60 d-flex flex-column justify-content-center'>
-				<Row className='mt-5 d-flex justify-content-center'>
+				<Row className='mt-5 pt-xl-4 d-flex justify-content-center'>
 					<h1 className='display-1 text-center'>
 						Making change, together!
 					</h1>
 				</Row>
-				<Row className='my-5'>
+				<Row>
 					<Col className='my-5 d-flex justify-content-center justify-content-xl-end me-xl-5 align-items-center'>
 						<Card className='p-3 p-xl-5 card'>
 							<Card.Body>
@@ -48,7 +48,7 @@ export default function Home() {
 									<Col className='my-xl-auto' xs={4}>
 										<Image style={{ width: '3.8rem' }} src={locationPointer} />
 									</Col>
-									<Col className='border' xs={8}>
+									<Col xs={8}>
 										<Card.Title>
 											<h3 className='card-title'>Location Alert</h3>
 										</Card.Title>
