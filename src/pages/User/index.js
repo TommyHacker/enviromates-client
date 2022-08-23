@@ -1,12 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import { Map } from '../../components';
-import trophy from '../../assets/images/trophy.png'
 import { motion } from 'framer-motion'
-import { Row } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import { Map } from '../../components';
+import trophy from '../../assets/images/trophy.png';
+import './style.css'
 
 export default function User() {
 	const user = useSelector((state) => state.user);
