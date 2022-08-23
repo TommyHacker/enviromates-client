@@ -34,7 +34,7 @@ export default function User() {
 				style={{ margin: 'auto', height:'100%'}}
 				>
 				<div className="mx-5 py-5 contentbg">
-					<h1 className="py-5 text-center display-1">Hello {user.username}!</h1>
+					<h1 className="py-5 display-1 text-center">Hello {user.username}!</h1>
 					<div>
 						<h2 className="mb-4 display-5 text-center">Daily Login <br/>Streak Day<h2 className="streak">Two</h2></h2>
 						<img src={trophy} className="pt-4 pb-5 streak-img"/>			
