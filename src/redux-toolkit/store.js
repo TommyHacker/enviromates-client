@@ -1,11 +1,19 @@
-import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './features/counterSlice'
+import { configureStore } from '@reduxjs/toolkit';
+import { userSlice } from './user';
+import { currentLocationSlice } from './currentLocation';
+import { eventsSlice } from './events';
+import counterReducer from './features/counterSlice';
 
 export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
+	reducer: {
+		counter: counterReducer,
 
-  },
-})
+		user: userSlice.reducer,
 
-export default store
+		currentLocation: currentLocationSlice.reducer,
+
+		events: eventsSlice.reducer,
+	},
+});
+
+export default store;

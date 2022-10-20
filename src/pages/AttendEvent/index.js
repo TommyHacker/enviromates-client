@@ -1,13 +1,21 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import { MapStatic } from '../../components'
+import { motion } from 'framer-motion'
 
 export default function AttendEvent() {
   return (
-    <div>
-    <Button variant="info">Attend Event</Button>{' '}
+
+    <motion.div
+			initial={{opacity: 0, }}
+			animate={{opacity: 1}}
+			transition={{ delay: 0, duration: 1.5}}
+			exit={{opacity: 0}}
+			style={{ margin: 'auto', height:'100%'}}
+			>
+      <Button variant="info">Attend Event</Button>{' '}
+
       <MapStatic/>
-    </div>
+    </motion.div>
     
   )
 }
