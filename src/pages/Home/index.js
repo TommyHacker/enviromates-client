@@ -10,6 +10,7 @@ import takeAction from '../../assets/images/take-action.png';
 import './style.css';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
+import SocialIcons from '../../components/SocialIcons';
 
 export default function Home() {
 	const navigate = useNavigate();
@@ -33,12 +34,9 @@ export default function Home() {
 			animate={{ opacity: 1 }}
 			transition={{ delay: 0.1, duration: 1.3 }}
 			exit={{ opacity: 0 }}>
-			
 			<Container className='h-60 d-flex flex-column justify-content-center'>
 				<Row className='mt-5 pt-xl-4 d-flex justify-content-center'>
-					<h1 className='display-1 text-center'>
-						Making change, together!
-					</h1>
+					<h1 className='display-1 text-center'>Making change, together!</h1>
 				</Row>
 				<Row>
 					<Col className='my-5 d-flex justify-content-center justify-content-xl-end me-xl-5 align-items-center'>

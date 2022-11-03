@@ -9,6 +9,7 @@ import AnimBtn from '../../components/AnimBtn';
 import { motion } from 'framer-motion';
 const url = 'https://api.cloudinary.com/v1_1/dgoun8ulz/image/upload';
 import { useSelector } from 'react-redux';
+import SocialIcons from '../../components/SocialIcons';
 
 export default function CreateEvent() {
 	const [isLoading, setIsLoading] = useState(false);
@@ -84,8 +85,7 @@ export default function CreateEvent() {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ delay: 0, duration: 1.5 }}
-			exit={{ opacity: 0 }}
-			>
+			exit={{ opacity: 0 }}>
 			<Container className='p-5 d-flex flex-column justify-content-center'>
 				<Row className='p-3 d-flex flex-column justify-content-center'>
 					<h1 className='display-2 text-center'>Create your own events</h1>
@@ -152,7 +152,6 @@ export default function CreateEvent() {
 						/>
 					</Form.Group>
 
-					
 					<Row className='p-3 d-flex justify-content-center align-items-center'>
 						{!isLoading ? (
 							<button className='submitBtn' variant='primary' type='submit'>
@@ -166,7 +165,6 @@ export default function CreateEvent() {
 					<div>
 						<Map />
 					</div>
-
 				</Form>
 			</Container>
 		</motion.div>
